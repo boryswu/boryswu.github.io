@@ -7,7 +7,82 @@
         <generator>Hugo -- gohugo.io</generator>
         <language>en-us</language>
         <copyright>BorysWu</copyright>
-        <lastBuildDate>Mon, 26 Oct 2026 18:26:18 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <lastBuildDate>Mon, 26 Oct 2026 19:14:31 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml" /><item>
+        <title>Dnsrec</title>
+        <link>https://boryswu.github.io/p/dnsrec/</link>
+        <pubDate>Mon, 26 Oct 2026 19:14:31 +0800</pubDate>
+        
+        <guid>https://boryswu.github.io/p/dnsrec/</guid>
+        <description>&lt;p&gt;递归DNS服务器查询过程&lt;/p&gt;
+&lt;p&gt;递归DNS服务器（也叫本地DNS解析器）的核心是替客户端完成全部DNS查询工作：客户端只需发送1次请求，就能直接拿到最终的IP地址，
+无需自己逐级查询。以下是完整流程（以访问 boryswu.github.io为例）：&lt;/p&gt;
+&lt;h1 id=&#34;完整查询步骤从客户端到拿到ip&#34;&gt;完整查询步骤（从客户端到拿到IP）
+&lt;/h1&gt;&lt;h2 id=&#34;1客户端发起请求&#34;&gt;1. 客户端发起请求
+&lt;/h2&gt;&lt;p&gt;用户在浏览器输入 boryswu.github.io，操作系统先检查本地 hosts 文件和系统DNS缓存。如果没有对应记录，就向系统配置的递归DNS服务器（如运营商DNS、114.114.114.114、8.8.8.8）发送DNS查询请求。&lt;/p&gt;
+&lt;h2 id=&#34;2递归dns查自身缓存&#34;&gt;2. 递归DNS查自身缓存
+&lt;/h2&gt;&lt;p&gt;递归DNS先检查自己的缓存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果有 boryswu.github.io的A/AAAA记录且未过期（TTL有效），直接将IP返回给客户端，查询结束。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果缓存无记录或已过期，开始逐级迭代查询（递归DNS对上层服务器用迭代查询）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id=&#34;3查询根域名服务器&#34;&gt;3. 查询根域名服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向全球13组根域名服务器（A-M）发送请求：“请问 boryswu.github.io的IP是什么？”
+根服务器不存储具体域名记录，但知道所有顶级域（TLD） 服务器的地址，因此返回 .com 顶级域服务器的IP列表。&lt;/p&gt;
+&lt;h2 id=&#34;4查询顶级域tld服务器&#34;&gt;4. 查询顶级域（TLD）服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向 .com 顶级域服务器发送同样的请求。
+ .com 服务器也不存储具体二级域名记录，但知道 example.com 的权威DNS服务器地址，因此返回该权威DNS的IP。&lt;/p&gt;
+&lt;h2 id=&#34;5查询权威dns服务器&#34;&gt;5. 查询权威DNS服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向 example.com 的权威DNS服务器发送请求。
+权威DNS是域名所有者配置的、存储该域名所有DNS记录（A、CNAME、MX等）的服务器，它会直接返回 boryswu.github.io对应的IP地址。&lt;/p&gt;
+&lt;h2 id=&#34;6返回结果并缓存&#34;&gt;6. 返回结果并缓存
+&lt;/h2&gt;&lt;p&gt;递归DNS将拿到的IP地址返回给客户端，同时将该记录存入自己的缓存（缓存时长由权威DNS设置的TTL值决定），供后续相同查询使用。&lt;/p&gt;
+&lt;h1 id=&#34;13台根服务器&#34;&gt;13台根服务器
+&lt;/h1&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
+&lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code&gt;&lt;span class=&#34;lnt&#34;&gt; 1
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 2
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 3
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 4
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 5
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 6
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 7
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 8
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt; 9
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;10
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;11
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;12
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;13
+&lt;/span&gt;&lt;span class=&#34;lnt&#34;&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class=&#34;lntd&#34;&gt;
+&lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;a.root-servers.net 	198.41.0.4, 2001:503:ba3e::2:30 	Verisign, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;b.root-servers.net 	170.247.170.2, 2801:1b8:10::b 	University of Southern California,
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;Information Sciences Institute
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;c.root-servers.net 	192.33.4.12, 2001:500:2::c 	Cogent Communications
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;d.root-servers.net 	199.7.91.13, 2001:500:2d::d 	University of Maryland
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;e.root-servers.net 	192.203.230.10, 2001:500:a8::e 	NASA (Ames Research Center)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;f.root-servers.net 	192.5.5.241, 2001:500:2f::f 	Internet Systems Consortium, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;g.root-servers.net 	192.112.36.4, 2001:500:12::d0d 	US Department of Defense (NIC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;h.root-servers.net 	198.97.190.53, 2001:500:1::53 	US Army (Research Lab)
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;i.root-servers.net 	192.36.148.17, 2001:7fe::53 	Netnod
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;j.root-servers.net 	192.58.128.30, 2001:503:c27::2:30 	Verisign, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;k.root-servers.net 	193.0.14.129, 2001:7fd::1 	RIPE NCC
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;l.root-servers.net 	199.7.83.42, 2001:500:9f::42 	ICANN
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;m.root-servers.net 	202.12.27.33, 2001:dc3::35 	WIDE Project
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id=&#34;ns记录&#34;&gt;NS记录
+&lt;/h1&gt;&lt;p&gt;NS 代表“域名服务器”，域名服务器记录指示哪个 DNS 服务器对该域具有权威性（即，哪个服务器包含实际 DNS 记录）。
+基本上，NS 记录告诉互联网可从哪里找到域的 IP 地址。
+一个域通常会有多个 NS 记录，这些记录可指示该域的主要和辅助域名服务器。倘若没有正确配置的 NS 记录，
+用户将无法加载网站或应用程序&lt;/p&gt;
+</description>
+        </item>
+        <item>
         <title>Autohugo</title>
         <link>https://boryswu.github.io/p/autohugo/</link>
         <pubDate>Mon, 26 Oct 2026 18:26:18 +0800</pubDate>
@@ -213,10 +288,32 @@
         
         <guid>https://boryswu.github.io/p/wordlist/</guid>
         <description>&lt;h1 id=&#34;wordlist&#34;&gt;WordList
-&lt;/h1&gt;&lt;p&gt;&lt;strong&gt;err is a word pronounced incorrectly&lt;/strong&gt;
-&lt;strong&gt;wl is wordlist&lt;/strong&gt;
-&lt;strong&gt;sw is a sight word group with pictures&lt;/strong&gt;
-&lt;strong&gt;abc is an unfamiliar word with sentences&lt;/strong&gt;&lt;/p&gt;
+&lt;/h1&gt;&lt;table&gt;
+	&lt;thead&gt;
+			&lt;tr&gt;
+					&lt;th&gt;prefix&lt;/th&gt;
+					&lt;th&gt;meaning&lt;/th&gt;
+			&lt;/tr&gt;
+	&lt;/thead&gt;
+	&lt;tbody&gt;
+			&lt;tr&gt;
+					&lt;td&gt;err&lt;/td&gt;
+					&lt;td&gt;is a word pronounced incorrectly&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;wl&lt;/td&gt;
+					&lt;td&gt;is wordlist&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;sw&lt;/td&gt;
+					&lt;td&gt;is a sight word group with pictures&lt;/td&gt;
+			&lt;/tr&gt;
+			&lt;tr&gt;
+					&lt;td&gt;abc&lt;/td&gt;
+					&lt;td&gt;is an unfamiliar word with sentences&lt;/td&gt;
+			&lt;/tr&gt;
+	&lt;/tbody&gt;
+&lt;/table&gt;
 &lt;h2 id=&#34;wl1021&#34;&gt;wl1021
 &lt;/h2&gt;&lt;div class=&#34;highlight&#34;&gt;&lt;div class=&#34;chroma&#34;&gt;
 &lt;table class=&#34;lntable&#34;&gt;&lt;tr&gt;&lt;td class=&#34;lntd&#34;&gt;
