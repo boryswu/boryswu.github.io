@@ -11,28 +11,20 @@
   <sitemap>
     <loc>http://localhost:1313/ja/sitemap.xml</loc>
     
-      <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    
   </sitemap>
   
   <sitemap>
     <loc>http://localhost:1313/zh-cn/sitemap.xml</loc>
-    
-      <lastmod>2020-09-09T00:00:00+00:00</lastmod>
     
   </sitemap>
   
   <sitemap>
     <loc>http://localhost:1313/zh-tw/sitemap.xml</loc>
     
-      <lastmod>2020-09-09T00:00:00+00:00</lastmod>
-    
   </sitemap>
   
   <sitemap>
     <loc>http://localhost:1313/ar/sitemap.xml</loc>
-    
-      <lastmod>2019-03-09T00:00:00+00:00</lastmod>
     
   </sitemap>
   
