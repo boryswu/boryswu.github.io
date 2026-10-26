@@ -27,10 +27,13 @@
     <loc>https://boryswu.github.io/p/abclist/</loc>
     <lastmod>2025-10-26T17:33:05+08:00</lastmod>
   </url><url>
-    <loc>https://boryswu.github.io/about/</loc>
-    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+    <loc>https://boryswu.github.io/archives/</loc>
+    <lastmod>2019-05-28T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://boryswu.github.io/page/</loc>
+    <lastmod>2020-10-09T00:00:00+00:00</lastmod>
+  </url><url>
+    <loc>https://boryswu.github.io/about/</loc>
     <lastmod>2020-10-09T00:00:00+00:00</lastmod>
   </url><url>
     <loc>https://boryswu.github.io/categories/</loc>
@@ -44,6 +47,10 @@
                 hreflang="es"
                 href="https://boryswu.github.io/es/categories/"
                 />
+  </url><url>
+    <loc>https://boryswu.github.io/links/</loc>
+  </url><url>
+    <loc>https://boryswu.github.io/search/</loc>
   </url><url>
     <loc>https://boryswu.github.io/tags/</loc>
     <xhtml:link
