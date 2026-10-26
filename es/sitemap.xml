@@ -2,18 +2,6 @@
 <urlset xmlns="http://www.sitemaps.org/schemas/sitemap/0.9"
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
-    <loc>https://boryswu.github.io/es/categories/</loc>
-    <xhtml:link
-                rel="alternate"
-                hreflang="en-us"
-                href="https://boryswu.github.io/categories/"
-                />
-    <xhtml:link
-                rel="alternate"
-                hreflang="es"
-                href="https://boryswu.github.io/es/categories/"
-                />
-  </url><url>
     <loc>https://boryswu.github.io/es/</loc>
     <xhtml:link
                 rel="alternate"
@@ -24,6 +12,18 @@
                 rel="alternate"
                 hreflang="es"
                 href="https://boryswu.github.io/es/"
+                />
+  </url><url>
+    <loc>https://boryswu.github.io/es/categories/</loc>
+    <xhtml:link
+                rel="alternate"
+                hreflang="en-us"
+                href="https://boryswu.github.io/categories/"
+                />
+    <xhtml:link
+                rel="alternate"
+                hreflang="es"
+                href="https://boryswu.github.io/es/categories/"
                 />
   </url><url>
     <loc>https://boryswu.github.io/es/tags/</loc>
