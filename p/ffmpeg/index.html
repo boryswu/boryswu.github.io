@@ -1,0 +1,846 @@
+<!DOCTYPE html>
+<html lang="en-us" dir="ltr">
+    <head><meta charset='utf-8'>
+<meta name='viewport' content='width=device-width, initial-scale=1'><meta name='description' content="1只修改音频音量，不重新编码视频 ffmpeg -i input.mp4 -filter:a &quot;volume=2.0&quot; -c:v copy output.mp4\n2微信upload出现0S视频提示 ffprobe检查 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;.\\宙高.mp4&#39;: Metadata: major_brand : iso6 minor_version : 1 compatible_brands: iso6dsmsmsixdash creation_time : 2026-07-28T15:15:48.000000Z encoder : GPAC-2.4-revrelease Duration: 00:00:47.60, start: 0.000000, bitrate: 848 kb/s Stream #0:00x1: Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 246 kb/s, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 12800 tbn (default) Metadata: handler_name : VideoHandler Stream #0:10x2: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default) Metadata: handler_name : ISO Media file produced by Google Inc. 文件信息解读 文件封装格式：MP4 (mov 容器)\n">
+<title>Ffmpeg</title>
+
+<link rel='canonical' href='https://boryswu.github.io/p/ffmpeg/'>
+
+<link rel="stylesheet" href="/scss/style.min.7003b7ac1a9c42e0b19aae00dfd2f4ca1ca01ad9fe44120e4e9e79d16f0188d6.css"><meta property='og:title' content="Ffmpeg">
+<meta property='og:description' content="1只修改音频音量，不重新编码视频 ffmpeg -i input.mp4 -filter:a &quot;volume=2.0&quot; -c:v copy output.mp4\n2微信upload出现0S视频提示 ffprobe检查 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;.\\宙高.mp4&#39;: Metadata: major_brand : iso6 minor_version : 1 compatible_brands: iso6dsmsmsixdash creation_time : 2026-07-28T15:15:48.000000Z encoder : GPAC-2.4-revrelease Duration: 00:00:47.60, start: 0.000000, bitrate: 848 kb/s Stream #0:00x1: Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 246 kb/s, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 12800 tbn (default) Metadata: handler_name : VideoHandler Stream #0:10x2: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default) Metadata: handler_name : ISO Media file produced by Google Inc. 文件信息解读 文件封装格式：MP4 (mov 容器)\n">
+<meta property='og:url' content='https://boryswu.github.io/p/ffmpeg/'>
+<meta property='og:site_name' content='BorysWu'>
+<meta property='og:type' content='article'><meta property='article:section' content='Post' /><meta property='article:published_time' content='2026-10-26T19:37:55&#43;08:00'/><meta property='article:modified_time' content='2026-10-26T19:37:55&#43;08:00'/>
+<meta name="twitter:title" content="Ffmpeg">
+<meta name="twitter:description" content="1只修改音频音量，不重新编码视频 ffmpeg -i input.mp4 -filter:a &quot;volume=2.0&quot; -c:v copy output.mp4\n2微信upload出现0S视频提示 ffprobe检查 1 2 3 4 5 6 7 8 9 10 11 12 13 14 Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;.\\宙高.mp4&#39;: Metadata: major_brand : iso6 minor_version : 1 compatible_brands: iso6dsmsmsixdash creation_time : 2026-07-28T15:15:48.000000Z encoder : GPAC-2.4-revrelease Duration: 00:00:47.60, start: 0.000000, bitrate: 848 kb/s Stream #0:00x1: Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 246 kb/s, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 12800 tbn (default) Metadata: handler_name : VideoHandler Stream #0:10x2: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default) Metadata: handler_name : ISO Media file produced by Google Inc. 文件信息解读 文件封装格式：MP4 (mov 容器)\n">
+    <link rel="shortcut icon" href="/favicon.ico" />
+
+    </head>
+    <body class="
+    article-page
+    ">
+    <script>
+        (function() {
+            const colorSchemeKey = 'StackColorScheme';
+            if(!localStorage.getItem(colorSchemeKey)){
+                localStorage.setItem(colorSchemeKey, "auto");
+            }
+        })();
+    </script><script>
+    (function() {
+        const colorSchemeKey = 'StackColorScheme';
+        const colorSchemeItem = localStorage.getItem(colorSchemeKey);
+        const supportDarkMode = window.matchMedia('(prefers-color-scheme: dark)').matches === true;
+
+        if (colorSchemeItem == 'dark' || colorSchemeItem === 'auto' && supportDarkMode) {
+            
+
+            document.documentElement.dataset.scheme = 'dark';
+        } else {
+            document.documentElement.dataset.scheme = 'light';
+        }
+    })();
+</script>
+<div class="container main-container flex on-phone--column extended"><aside class="sidebar left-sidebar sticky ">
+    <button class="hamburger hamburger--spin" type="button" id="toggle-menu" aria-label="Toggle Menu">
+        <span class="hamburger-box">
+            <span class="hamburger-inner"></span>
+        </span>
+    </button>
+
+    <header>
+        
+            
+            <figure class="site-avatar">
+                <a href="/">
+                
+                    
+                    
+                    
+                        
+                        <img src="/img/avatar_hu_8227c26702f88ec4.png" width="300"
+                            height="190" class="site-logo" loading="lazy" alt="Avatar">
+                    
+                
+                </a>
+                
+                    <span class="emoji">🍥</span>
+                
+            </figure>
+            
+        
+        
+        <div class="site-meta">
+            <h1 class="site-name"><a href="/">BorysWu</a></h1>
+            <h2 class="site-description">Welcome To BorysWu&#39;s Site</h2>
+        </div>
+    </header><ol class="menu-social">
+            
+                <li>
+                    <a 
+                        href='mailto:cvn9d9yvp@mozmail.com'
+                        target="_blank"
+                        title="Email"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="UTF-8" standalone="no"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg width="800px" height="800px" viewBox="0 0 20 20" version="1.1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink">
+    
+    <title>email [#1564]</title>
+    <desc>Created with Sketch.</desc>
+    <defs>
+
+</defs>
+    <g id="Page-1" stroke="none" stroke-width="1" fill="none" fill-rule="evenodd">
+        <g id="Dribbble-Light-Preview" transform="translate(-260.000000, -959.000000)" fill="#000000">
+            <g id="icons" transform="translate(56.000000, 160.000000)">
+                <path d="M208,801.586 C208,801.034 208.448,801 209,801 L219,801 C219.552,801 220,801.034 220,801.586 L220,802.835 L214.447,805.612 C214.166,805.752 213.834,805.752 213.553,805.612 L208,802.835 L208,801.586 Z M206.276,804.209 L213.106,807.624 C213.669,807.906 214.331,807.906 214.894,807.624 L221.724,804.209 C221.893,804.125 222,803.952 222,803.762 L222,800.586 C222,799.481 221.105,799 220,799 L208,799 C206.895,799 206,799.481 206,800.586 L206,803.762 C206,803.952 206.107,804.125 206.276,804.209 L206.276,804.209 Z M222,815.586 C222,816.138 221.552,817 221,817 L207,817 C206.448,817 206,816.138 206,815.586 L206,809.116 C206,808.745 206.391,808.503 206.724,808.669 C210.9,810.757 209.617,810.116 213.119,811.867 C213.674,812.145 214.328,812.149 214.886,811.877 C218.357,810.193 216.898,810.897 221.284,808.791 C221.615,808.631 222,808.873 222,809.242 L222,815.586 Z M221.106,806.518 L214.447,809.848 C214.166,809.988 213.834,809.988 213.553,809.848 L206.894,806.518 C205.565,805.854 204,806.821 204,808.307 L204,816.586 C204,817.691 204.895,819 206,819 L222,819 C223.105,819 224,817.691 224,816.586 L224,808.307 C224,806.821 222.435,805.854 221.106,806.518 L221.106,806.518 Z" id="email-[#1564]">
+
+</path>
+            </g>
+        </g>
+    </g>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://github.com/boryswu'
+                        target="_blank"
+                        title="GitHub"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="utf-8"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg fill="#000000" width="800px" height="800px" viewBox="0 0 32 32" version="1.1" xmlns="http://www.w3.org/2000/svg">
+<title>github</title>
+<path d="M16 1.375c-8.282 0-14.996 6.714-14.996 14.996 0 6.585 4.245 12.18 10.148 14.195l0.106 0.031c0.75 0.141 1.025-0.322 1.025-0.721 0-0.356-0.012-1.3-0.019-2.549-4.171 0.905-5.051-2.012-5.051-2.012-0.288-0.925-0.878-1.685-1.653-2.184l-0.016-0.009c-1.358-0.93 0.105-0.911 0.105-0.911 0.987 0.139 1.814 0.718 2.289 1.53l0.008 0.015c0.554 0.995 1.6 1.657 2.801 1.657 0.576 0 1.116-0.152 1.582-0.419l-0.016 0.008c0.072-0.791 0.421-1.489 0.949-2.005l0.001-0.001c-3.33-0.375-6.831-1.665-6.831-7.41-0-0.027-0.001-0.058-0.001-0.089 0-1.521 0.587-2.905 1.547-3.938l-0.003 0.004c-0.203-0.542-0.321-1.168-0.321-1.821 0-0.777 0.166-1.516 0.465-2.182l-0.014 0.034s1.256-0.402 4.124 1.537c1.124-0.321 2.415-0.506 3.749-0.506s2.625 0.185 3.849 0.53l-0.1-0.024c2.849-1.939 4.105-1.537 4.105-1.537 0.285 0.642 0.451 1.39 0.451 2.177 0 0.642-0.11 1.258-0.313 1.83l0.012-0.038c0.953 1.032 1.538 2.416 1.538 3.937 0 0.031-0 0.061-0.001 0.091l0-0.005c0 5.761-3.505 7.029-6.842 7.398 0.632 0.647 1.022 1.532 1.022 2.509 0 0.093-0.004 0.186-0.011 0.278l0.001-0.012c0 2.007-0.019 3.619-0.019 4.106 0 0.394 0.262 0.862 1.031 0.712 6.028-2.029 10.292-7.629 10.292-14.226 0-8.272-6.706-14.977-14.977-14.977-0.006 0-0.013 0-0.019 0h0.001z"></path>
+</svg>
+                        
+                    </a>
+                </li>
+            
+                <li>
+                    <a 
+                        href='https://boryswu.github.io'
+                        target="_blank"
+                        title="Webpage"
+                        rel="me"
+                    >
+                        
+                        
+                            <?xml version="1.0" encoding="iso-8859-1"?>
+<!-- Uploaded to: SVG Repo, www.svgrepo.com, Generator: SVG Repo Mixer Tools -->
+<svg height="800px" width="800px" version="1.1" id="Layer_1" xmlns="http://www.w3.org/2000/svg" xmlns:xlink="http://www.w3.org/1999/xlink" 
+	 viewBox="0 0 392.533 392.533" xml:space="preserve">
+<path style="fill:#FFC10D;" d="M359.822,147.329H32.711c-6.012,0-10.925,4.848-10.925,10.925v75.96
+	c0,6.012,4.848,10.925,10.925,10.925h327.111c6.012,0,10.925-4.848,10.925-10.925v-75.96
+	C370.747,152.242,365.834,147.329,359.822,147.329z"/>
+<g>
+	<path style="fill:#FFFFFF;" d="M104.404,125.543c2.521-13.446,5.689-26.117,9.438-37.818c-15.903-2.004-31.806-4.59-47.774-7.628
+		c-11.895,13.382-21.786,28.574-29.285,45.446H104.404z"/>
+	<path style="fill:#FFFFFF;" d="M185.341,92.768c-16.485-0.259-32.84-1.164-49.196-2.651c-3.685,10.796-6.982,22.691-9.503,35.362
+		h58.828V92.703h-0.129V92.768z"/>
+	<path style="fill:#FFFFFF;" d="M85.463,61.608c12.024,2.069,24.113,3.814,36.267,5.172c6.206-14.287,13.317-26.57,21.269-36.655
+		C121.859,36.913,102.4,47.644,85.463,61.608z"/>
+	<path style="fill:#FFFFFF;" d="M185.341,23.79c-15.127,5.301-29.349,21.463-40.663,45.253c13.511,1.099,27.022,1.681,40.663,1.939
+		V23.79z"/>
+	<path style="fill:#FFFFFF;" d="M278.691,87.79c3.814,11.636,6.853,24.242,9.438,37.818h67.62
+		c-7.499-16.873-17.39-32.065-29.285-45.446C310.562,83.265,294.659,85.851,278.691,87.79z"/>
+	<path style="fill:#FFFFFF;" d="M307.071,61.608c-16.937-13.899-36.396-24.63-57.471-31.354
+		c7.952,10.02,15.063,22.303,21.269,36.655C282.958,65.358,295.046,63.677,307.071,61.608z"/>
+	<path style="fill:#FFFFFF;" d="M256.388,90.182c-16.356,1.487-32.84,2.392-49.196,2.651v32.776h58.828
+		C263.434,112.873,260.202,100.978,256.388,90.182z"/>
+	<path style="fill:#FFFFFF;" d="M207.192,70.982c13.511-0.259,27.152-0.84,40.663-1.939c-11.313-23.725-25.471-39.952-40.663-45.253
+		V70.982z"/>
+	<path style="fill:#FFFFFF;" d="M288.129,266.99c-2.521,13.447-5.689,26.117-9.438,37.818c15.903,2.004,31.806,4.59,47.774,7.628
+		c11.895-13.382,21.786-28.574,29.285-45.446L288.129,266.99L288.129,266.99z"/>
+	<path style="fill:#FFFFFF;" d="M207.192,368.743c15.127-5.301,29.349-21.463,40.663-45.253
+		c-13.511-1.099-27.022-1.681-40.663-1.939V368.743z"/>
+	<path style="fill:#FFFFFF;" d="M207.192,299.766c16.485,0.259,32.84,1.164,49.196,2.65c3.685-10.796,6.982-22.691,9.503-35.362
+		h-58.828v32.776h0.129V299.766z"/>
+	<path style="fill:#FFFFFF;" d="M307.071,330.925c-12.024-2.069-24.113-3.814-36.267-5.172
+		c-6.206,14.287-13.317,26.57-21.269,36.655C270.675,355.62,290.133,344.889,307.071,330.925z"/>
+	<path style="fill:#FFFFFF;" d="M185.341,321.552c-13.511,0.259-27.152,0.84-40.663,1.939
+		c11.313,23.725,25.471,39.952,40.663,45.253V321.552z"/>
+	<path style="fill:#FFFFFF;" d="M36.848,266.99c7.499,16.873,17.39,32.065,29.285,45.447c15.838-3.103,31.741-5.689,47.774-7.628
+		c-3.814-11.636-6.853-24.242-9.438-37.689h-67.62V266.99z"/>
+	<path style="fill:#FFFFFF;" d="M136.145,302.352c16.356-1.487,32.84-2.392,49.196-2.65v-32.776h-58.828
+		C129.099,279.661,132.331,291.556,136.145,302.352z"/>
+	<path style="fill:#FFFFFF;" d="M121.729,325.754c-12.024,1.422-24.178,3.103-36.267,5.172
+		c16.937,13.899,36.396,24.63,57.471,31.354C134.982,352.388,127.806,340.04,121.729,325.754z"/>
+</g>
+<g>
+	<path style="fill:#194F82;" d="M383.03,135.305C355.62,53.204,279.855,0,196.267,0C112.42,0,37.236,53.139,9.826,134.917
+		C3.814,140.865,0,149.139,0,158.255v75.96c0,8.792,3.556,16.873,9.244,22.82c29.608,82.812,103.046,135.499,187.022,135.499
+		c83.846,0,159.741-53.85,186.44-134.917c6.012-5.947,9.826-14.222,9.826-23.337v-75.96
+		C392.533,149.269,388.913,141.188,383.03,135.305z M355.685,125.543h-67.62c-2.521-13.446-5.689-26.117-9.438-37.818
+		c15.903-2.004,31.806-4.59,47.774-7.628C338.295,93.479,348.25,108.735,355.685,125.543z M307.071,61.608
+		c-12.024,2.069-24.113,3.814-36.267,5.172c-6.077-14.287-13.317-26.57-21.269-36.655C270.675,36.913,290.133,47.644,307.071,61.608
+		z M207.192,23.79c15.127,5.301,29.349,21.463,40.663,45.253c-13.511,1.099-27.152,1.681-40.663,1.939V23.79z M207.063,92.768h0.065
+		c16.485-0.259,32.84-1.164,49.196-2.651c3.685,10.796,6.982,22.691,9.503,35.362h-58.828V92.768H207.063z M185.341,23.79v47.192
+		c-13.511-0.259-27.152-0.84-40.663-1.939C155.992,45.253,170.214,29.156,185.341,23.79z M185.277,92.768v32.776h-58.699
+		c2.521-12.671,5.818-24.566,9.503-35.362C152.436,91.669,168.921,92.574,185.277,92.768z M142.933,30.125
+		c-7.952,10.02-15.063,22.303-21.269,36.655c-12.024-1.422-24.178-3.103-36.267-5.172C102.4,47.644,121.859,36.913,142.933,30.125z
+		 M66.133,80.097c15.838,3.103,31.741,5.689,47.774,7.628c-3.814,11.636-6.853,24.242-9.438,37.818h-67.62
+		C44.283,108.735,54.238,93.479,66.133,80.097z M36.848,266.99h67.62c2.521,13.447,5.689,26.117,9.438,37.689
+		c-15.903,2.004-31.806,4.59-47.774,7.628C54.238,299.055,44.283,283.798,36.848,266.99z M85.463,330.925
+		c12.024-2.069,24.113-3.814,36.267-5.172c6.206,14.287,13.317,26.57,21.269,36.655C121.859,355.62,102.4,344.889,85.463,330.925z
+		 M185.341,368.743c-15.127-5.301-29.349-21.463-40.663-45.253c13.511-1.099,27.152-1.681,40.663-1.939V368.743z M185.471,299.766
+		h-0.065c-16.485,0.259-32.84,1.164-49.196,2.65c-3.685-10.796-6.982-22.691-9.503-35.362h58.828v32.711H185.471z M207.192,368.743
+		v-47.192c13.511,0.259,27.152,0.84,40.663,1.939C236.541,347.281,222.319,363.378,207.192,368.743z M207.257,299.766V266.99h58.699
+		c-2.521,12.671-5.818,24.566-9.503,35.362C240.097,300.865,223.612,299.96,207.257,299.766z M249.6,362.408
+		c7.952-10.02,15.063-22.303,21.269-36.655c12.024,1.422,24.178,3.103,36.267,5.172C290.133,344.889,270.675,355.62,249.6,362.408z
+		 M326.4,312.436c-15.838-3.103-31.741-5.689-47.774-7.628c3.814-11.636,6.853-24.242,9.438-37.818h67.62
+		C348.25,283.798,338.295,299.055,326.4,312.436z M359.822,245.204H32.711c-6.012,0-10.925-4.848-10.925-10.925v-75.96
+		c0-6.012,4.848-10.925,10.925-10.925h327.111c6.012,0,10.925,4.848,10.925,10.925v75.96h0.065
+		C370.747,240.291,365.899,245.204,359.822,245.204z"/>
+	<polygon style="fill:#194F82;" points="120.76,202.085 109.899,168.21 94.836,168.21 83.911,202.085 72.986,168.21 56.889,168.21 
+		75.895,224.259 92.057,224.259 102.4,193.745 112.679,224.259 128.905,224.259 147.911,168.21 131.685,168.21 	"/>
+	<polygon style="fill:#194F82;" points="214.562,202.15 203.701,168.275 188.638,168.275 177.713,202.15 166.853,168.275 
+		150.691,168.275 169.697,224.259 185.859,224.259 196.267,193.81 206.481,224.323 222.707,224.323 241.713,168.275 
+		225.487,168.275 	"/>
+	<polygon style="fill:#194F82;" points="308.493,202.085 297.568,168.21 282.505,168.21 271.58,202.085 260.719,168.21 
+		244.558,168.21 263.564,224.259 279.725,224.259 290.069,193.745 300.347,224.259 316.574,224.259 335.58,168.21 319.354,168.21 	
+		"/>
+</g>
+<g>
+	<path style="fill:#56ACE0;" d="M270.675,326.141c0.129-0.065,0.323-0.259,0.453-0.323c-0.065,0-0.259,0-0.323,0
+		C270.739,325.947,270.739,326.012,270.675,326.141z"/>
+	<path style="fill:#56ACE0;" d="M121.406,325.754c0.129,0.065,0.323,0.259,0.453,0.323c-0.065-0.129-0.065-0.259-0.129-0.388
+		C121.6,325.754,121.471,325.754,121.406,325.754z"/>
+	<path style="fill:#56ACE0;" d="M271.127,66.78c-0.129-0.065-0.323-0.259-0.453-0.323c0.065,0.129,0.065,0.259,0.129,0.388
+		C270.933,66.78,271.063,66.78,271.127,66.78z"/>
+	<path style="fill:#56ACE0;" d="M121.859,66.392c-0.129,0.065-0.323,0.259-0.453,0.323c0.065,0,0.259,0,0.323,0
+		C121.794,66.586,121.794,66.521,121.859,66.392z"/>
+	<path style="fill:#56ACE0;" d="M70.723,266.99c7.24,14.933,16.743,28.38,28.057,39.887c5.042-0.776,10.02-1.552,15.127-2.133
+		c-3.814-11.636-6.853-24.242-9.438-37.689H70.723V266.99z"/>
+	<path style="fill:#56ACE0;" d="M70.723,266.99L70.723,266.99L70.723,266.99z"/>
+	<path style="fill:#56ACE0;" d="M185.277,266.99h-58.699c2.521,12.671,5.818,24.566,9.503,35.362
+		c16.356-1.487,32.84-2.392,49.196-2.65V266.99z"/>
+	<path style="fill:#56ACE0;" d="M288.129,267.055v-0.065c-2.521,13.447-5.689,26.117-9.438,37.818
+		c5.042,0.646,10.02,1.422,15.127,2.133c11.313-11.507,20.816-24.954,28.057-39.887H288.129z"/>
+	<path style="fill:#56ACE0;" d="M144.743,69.107c13.511,1.099,27.152,1.681,40.663,1.939V44.154
+		c-10.279,0.84-20.234,2.844-29.802,5.947C151.725,55.725,148.04,61.996,144.743,69.107z"/>
+	<path style="fill:#56ACE0;" d="M207.192,348.444c10.279-0.84,20.234-2.844,29.802-5.947c3.814-5.624,7.499-11.895,10.796-19.006
+		c-13.511-1.099-27.152-1.681-40.663-1.939v26.893H207.192z"/>
+	<path style="fill:#56ACE0;" d="M207.192,299.766c16.485,0.259,32.84,1.164,49.196,2.65c3.814-10.796,6.982-22.691,9.568-35.362
+		h-58.828v32.711H207.192z"/>
+	<path style="fill:#56ACE0;" d="M207.257,92.768v32.776h58.699c-2.521-12.671-5.818-24.566-9.503-35.362
+		C240.097,91.669,223.612,92.574,207.257,92.768z"/>
+	<path style="fill:#56ACE0;" d="M236.994,50.036c-9.568-3.103-19.523-5.107-29.802-5.947v26.893
+		c13.511-0.259,27.152-0.84,40.663-1.939C244.493,62.061,240.808,55.725,236.994,50.036z"/>
+	<path style="fill:#56ACE0;" d="M155.539,342.497c9.568,3.103,19.523,5.107,29.802,5.947v-26.893
+		c-13.576,0.259-27.152,0.84-40.663,1.939C148.04,330.473,151.79,336.808,155.539,342.497z"/>
+	<path style="fill:#56ACE0;" d="M321.81,125.608v-0.065c-7.24-14.933-16.743-28.38-28.057-39.887
+		c-5.042,0.776-10.02,1.552-15.127,2.133c3.814,11.636,6.853,24.242,9.438,37.818H321.81z"/>
+	<path style="fill:#56ACE0;" d="M104.404,125.543c2.521-13.446,5.689-26.117,9.438-37.818c-5.042-0.646-10.02-1.422-15.127-2.133
+		c-11.313,11.507-20.816,24.954-28.057,39.887h33.745C104.404,125.479,104.404,125.543,104.404,125.543z"/>
+	<path style="fill:#56ACE0;" d="M126.578,125.543h58.828V92.768c-16.485-0.259-32.84-1.164-49.196-2.651
+		C132.331,100.978,129.099,112.873,126.578,125.543z"/>
+</g>
+</svg>
+                        
+                    </a>
+                </li>
+            
+        </ol><ol class="menu" id="main-menu">
+        
+        
+        
+        <li >
+            <a href='/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-home" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <polyline points="5 12 3 12 12 3 21 12 19 12" />
+  <path d="M5 12v7a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-7" />
+  <path d="M9 21v-6a2 2 0 0 1 2 -2h2a2 2 0 0 1 2 2v6" />
+</svg>
+
+
+
+                
+                <span>Home</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/about/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-user" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="7" r="4" />
+  <path d="M6 21v-2a4 4 0 0 1 4 -4h4a4 4 0 0 1 4 4v2" />
+</svg>
+
+
+
+                
+                <span>About</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/archives/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-archive" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <rect x="3" y="4" width="18" height="4" rx="2" />
+  <path d="M5 8v10a2 2 0 0 0 2 2h10a2 2 0 0 0 2 -2v-10" />
+  <line x1="10" y1="12" x2="14" y2="12" />
+</svg>
+
+
+
+                
+                <span>Archives</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/search/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-search" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="10" cy="10" r="7" />
+  <line x1="21" y1="21" x2="15" y2="15" />
+</svg>
+
+
+
+                
+                <span>Search</span>
+            </a>
+        </li>
+        
+        
+        <li >
+            <a href='/links/' >
+                
+                
+                
+                    <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-link" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M10 14a3.5 3.5 0 0 0 5 0l4 -4a3.5 3.5 0 0 0 -5 -5l-.5 .5" />
+  <path d="M14 10a3.5 3.5 0 0 0 -5 0l-4 4a3.5 3.5 0 0 0 5 5l.5 -.5" />
+</svg>
+
+
+
+                
+                <span>Links</span>
+            </a>
+        </li>
+        
+        <li class="menu-bottom-section">
+            <ol class="menu">
+                    
+                        <li id="i18n-switch">  
+                            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-language" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z" fill="none"/>
+  <path d="M4 5h7" />
+  <path d="M9 3v2c0 4.418 -2.239 8 -5 8" />
+  <path d="M5 9c-.003 2.144 2.952 3.908 6.7 4" />
+  <path d="M12 20l4 -9l4 9" />
+  <path d="M19.1 18h-6.2" />
+</svg>
+
+
+
+                            <select name="language" title="language" onchange="window.location.href = this.selectedOptions[0].value">
+                                
+                                    <option value="https://boryswu.github.io/" selected>English</option>
+                                
+                                    <option value="https://boryswu.github.io/es/" >Spanish</option>
+                                
+                            </select>
+                        </li>
+                    
+                
+
+                
+                    <li id="dark-mode-toggle">
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-left" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="8" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-toggle-right" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="16" cy="12" r="2" />
+  <rect x="2" y="6" width="20" height="12" rx="6" />
+</svg>
+
+
+
+                        <span>Dark Mode</span>
+                    </li>
+                
+            </ol>
+        </li>
+    </ol>
+</aside>
+
+    <aside class="sidebar right-sidebar sticky">
+        
+            
+                
+    <section class="widget archives">
+        <div class="widget-icon">
+            <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-hash" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <line x1="5" y1="9" x2="19" y2="9" />
+  <line x1="5" y1="15" x2="19" y2="15" />
+  <line x1="11" y1="4" x2="7" y2="20" />
+  <line x1="17" y1="4" x2="13" y2="20" />
+</svg>
+
+
+
+        </div>
+        <h2 class="widget-title section-title">Table of contents</h2>
+        
+        <div class="widget--toc">
+            <nav id="TableOfContents">
+  <ol>
+    <li>
+      <ol>
+        <li><a href="#ffprobe检查">ffprobe检查</a></li>
+        <li><a href="#文件信息解读">文件信息解读</a>
+          <ol>
+            <li><a href="#元数据-metadata">元数据 Metadata</a></li>
+            <li><a href="#文件整体信息">文件整体信息</a></li>
+            <li><a href="#视频流-stream-00">视频流 Stream #0:0</a></li>
+            <li><a href="#音频流-stream-01">音频流 Stream #0:1</a></li>
+          </ol>
+        </li>
+        <li><a href="#在微信upload时提示是0s">在微信upload时提示是0s</a>
+          <ol>
+            <li><a href="#原因">原因</a></li>
+            <li><a href="#解决办法">解决办法</a></li>
+          </ol>
+        </li>
+      </ol>
+    </li>
+  </ol>
+</nav>
+        </div>
+    </section>
+
+            
+        
+    </aside>
+
+
+            <main class="main full-width">
+    <article class="main-article">
+    <header class="article-header">
+
+    <div class="article-details">
+    
+
+    <div class="article-title-wrapper">
+        <h2 class="article-title">
+            <a href="/p/ffmpeg/">Ffmpeg</a>
+        </h2>
+    
+        
+    </div>
+
+    
+    
+    
+    
+    <footer class="article-time">
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-calendar-time" width="56" height="56" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <path d="M11.795 21h-6.795a2 2 0 0 1 -2 -2v-12a2 2 0 0 1 2 -2h12a2 2 0 0 1 2 2v4" />
+  <circle cx="18" cy="18" r="4" />
+  <path d="M15 3v4" />
+  <path d="M7 3v4" />
+  <path d="M3 11h16" />
+  <path d="M18 16.496v1.504l1 1" />
+</svg>
+                <time class="article-time--published" datetime='2026-10-26T19:37:55&#43;08:00'>2026-10-26</time>
+            </div>
+        
+
+        
+            <div>
+                <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-clock" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <polyline points="12 7 12 12 15 15" />
+</svg>
+
+
+
+                <time class="article-time--reading">
+                    2 minute read
+                </time>
+            </div>
+        
+    </footer>
+    
+
+    
+</div>
+
+</header>
+
+    <section class="article-content">
+    
+    
+    <h1 id="1只修改音频音量不重新编码视频">1只修改音频音量，不重新编码视频
+</h1><p><code>ffmpeg -i input.mp4 -filter:a &quot;volume=2.0&quot; -c:v copy output.mp4</code></p>
+<h1 id="2微信upload出现0s视频提示">2微信upload出现0S视频提示
+</h1><h3 id="ffprobe检查">ffprobe检查
+</h3><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt"> 1
+</span><span class="lnt"> 2
+</span><span class="lnt"> 3
+</span><span class="lnt"> 4
+</span><span class="lnt"> 5
+</span><span class="lnt"> 6
+</span><span class="lnt"> 7
+</span><span class="lnt"> 8
+</span><span class="lnt"> 9
+</span><span class="lnt">10
+</span><span class="lnt">11
+</span><span class="lnt">12
+</span><span class="lnt">13
+</span><span class="lnt">14
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &#39;.\宙高.mp4&#39;:
+</span></span><span class="line"><span class="cl">Metadata:
+</span></span><span class="line"><span class="cl">major_brand : iso6
+</span></span><span class="line"><span class="cl">minor_version : 1
+</span></span><span class="line"><span class="cl">compatible_brands: iso6dsmsmsixdash
+</span></span><span class="line"><span class="cl">creation_time : 2026-07-28T15:15:48.000000Z
+</span></span><span class="line"><span class="cl">encoder : GPAC-2.4-revrelease
+</span></span><span class="line"><span class="cl">Duration: 00:00:47.60, start: 0.000000, bitrate: 848 kb/s
+</span></span><span class="line"><span class="cl">Stream #0:00x1: Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 246 kb/s, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 12800 tbn (default)
+</span></span><span class="line"><span class="cl">Metadata:
+</span></span><span class="line"><span class="cl">handler_name : VideoHandler
+</span></span><span class="line"><span class="cl">Stream #0:10x2: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
+</span></span><span class="line"><span class="cl">Metadata:
+</span></span><span class="line"><span class="cl">handler_name : ISO Media file produced by Google Inc.
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h3 id="文件信息解读">文件信息解读
+</h3><p>文件封装格式：<strong>MP4 (mov 容器)</strong></p>
+<h4 id="元数据-metadata">元数据 Metadata
+</h4><ul>
+<li><code>major_brand: iso6</code>：MP4 版本标识</li>
+<li><code>creation_time: 2026-07-28T15:15:48Z</code>：文件生成时间 UTC</li>
+<li><code>encoder: GPAC‑2.4‑revrelease</code>：由 GPAC（MP4Box）工具生成</li>
+</ul>
+<h4 id="文件整体信息">文件整体信息
+</h4><ul>
+<li><strong>时长</strong>：<code>00:00:47.60</code> → 47.6 秒</li>
+<li><strong>总码率</strong>：<code>848 kb/s</code></li>
+</ul>
+<h4 id="视频流-stream-00">视频流 Stream #0:0
+</h4><ul>
+<li>编码：<strong>H.264 High Profile</strong></li>
+<li>色彩：<code>yuv420p</code>，BT.709 色彩空间（高清视频标准）</li>
+<li>分辨率：<strong>1280×720 (720P)</strong>，画面比例 16:9</li>
+<li>视频码率：<code>246 kb/s</code></li>
+<li>帧率：<strong>25fps</strong></li>
+</ul>
+<h4 id="音频流-stream-01">音频流 Stream #0:1
+</h4><ul>
+<li>编码：<strong>AAC‑LC</strong></li>
+<li>采样率：<code>44100 Hz</code>，立体声</li>
+<li>音频码率：<code>128 kb/s</code></li>
+</ul>
+<h3 id="在微信upload时提示是0s">在微信upload时提示是0s
+</h3><h4 id="原因">原因
+</h4><ol>
+<li>GPAC 输出的这个 MP4，<code>moov</code>盒子（存放时长、轨道索引的元数据）放在<strong>文件末尾</strong>。</li>
+<li>微信的解析器只读取文件开头一小段，不会扫描整个文件去找末尾的 moov；读不到时长元数据，直接判定为 0 秒，无法正常发送 / 上传。</li>
+<li>另外文件品牌标记 <code>compatible_brands: iso6dsmsmsixdash</code>，这是 DASH 分片兼容标记，普通 MP4 解析器对这种组合兼容性差，加重识别异常。</li>
+</ol>
+<p><strong>本地播放器完整扫描整个文件可以播放；微信只读文件头部，拿不到时长信息 → 0 秒</strong>。</p>
+<h4 id="解决办法">解决办法
+</h4><p>修复命令（FFmpeg，无损封装，不重新编码，速度快）</p>
+<div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ffmpeg -i 宙高.mp4 -c copy -movflags +faststart 宙高fix.mp4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="3用jpg和mp3合成mp4">3用JPG和MP3合成mp4
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ffmpeg -y -loop 1 -i yarn.jpg -i yarn.mp3 -filter:v &#34;scale=trunc(iw/2)*2:trunc(ih/2)*2&#34; -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest output.mp4
+</span></span></code></pre></td></tr></table>
+</div>
+</div><h1 id="4动态文字水印">4动态文字水印
+</h1><div class="highlight"><div class="chroma">
+<table class="lntable"><tr><td class="lntd">
+<pre tabindex="0" class="chroma"><code><span class="lnt">1
+</span><span class="lnt">2
+</span><span class="lnt">3
+</span><span class="lnt">4
+</span><span class="lnt">5
+</span></code></pre></td>
+<td class="lntd">
+<pre tabindex="0" class="chroma"><code class="language-fallback" data-lang="fallback"><span class="line"><span class="cl">ffmpeg  -i in.mp4 -vf &#34;drawtext=text=&#39;DYDTEK&#39;:x=mod(60*t\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.6&#34; output.mp4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ffmpeg  -i in.mp4 -vf &#34;drawtext=fontfile=&#39;C\:/Windows/Fonts/simhei.ttf&#39;:text=&#39;DYDTEK&#39;:x=mod(60*t`\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.6&#34; output.mp4
+</span></span><span class="line"><span class="cl">
+</span></span><span class="line"><span class="cl">ffmpeg  -i in.mp4 -vf &#34;drawtext=fontfile=&#39;C\:/Windows/Fonts/msyhbd.ttc&#39;:text=&#39;dydtek.com&#39;:x=mod(60*t\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.4:borderw=2:bordercolor=black:shadowx=2:shadowy=2:shadowcolor=black@0.4&#34; output.mp4
+</span></span></code></pre></td></tr></table>
+</div>
+</div>
+</section>
+
+
+    <footer class="article-footer">
+    
+
+    
+    <section class="article-copyright">
+        <svg xmlns="http://www.w3.org/2000/svg" class="icon icon-tabler icon-tabler-copyright" width="24" height="24" viewBox="0 0 24 24" stroke-width="2" stroke="currentColor" fill="none" stroke-linecap="round" stroke-linejoin="round">
+  <path stroke="none" d="M0 0h24v24H0z"/>
+  <circle cx="12" cy="12" r="9" />
+  <path d="M14.5 9a3.5 4 0 1 0 0 6" />
+</svg>
+
+
+
+        <span>Licensed under CC BY-NC-SA 4.0</span>
+    </section>
+    </footer>
+
+
+    
+</article>
+
+    
+
+    
+
+     
+    
+        
+    <div class="disqus-container">
+    <div id="disqus_thread"></div>
+<script>
+    window.disqus_config = function () {
+    
+    
+    
+    };
+    (function() {
+        if (["localhost", "127.0.0.1"].indexOf(window.location.hostname) != -1) {
+            document.getElementById('disqus_thread').innerHTML = 'Disqus comments not available by default when the website is previewed locally.';
+            return;
+        }
+        var d = document, s = d.createElement('script'); s.async = true;
+        s.src = '//' + "hugo-theme-stack" + '.disqus.com/embed.js';
+        s.setAttribute('data-timestamp', +new Date());
+        (d.head || d.body).appendChild(s);
+    })();
+</script>
+		<noscript>Please enable JavaScript to view the <a href="https://disqus.com/?ref_noscript">comments powered by Disqus.</a></noscript>
+		<a href="https://disqus.com" class="dsq-brlink">comments powered by <span class="logo-disqus">Disqus</span></a>
+	
+</div>
+
+<style>
+    .disqus-container {
+        background-color: var(--card-background);
+        border-radius: var(--card-border-radius);
+        box-shadow: var(--shadow-l1);
+        padding: var(--card-padding);
+    }
+</style>
+
+<script>
+    window.addEventListener('onColorSchemeChange', (e) => {
+        if (typeof DISQUS == 'object') {
+            DISQUS.reset({
+                reload: true
+            });
+        }
+    })
+</script>
+
+    
+
+    <footer class="site-footer">
+    <section class="copyright">
+        &copy; 
+        
+            2010 - 
+        
+        2026 BorysWu
+    </section>
+	
+	
+	    <span id="timeDate">Load Days...</span><span id="times">Load HMS...</span>
+    <script language="javascript"> 
+        var now = new Date();
+        function createtime(){
+            
+            now.setTime(now.getTime()+250);
+            var grt= new Date("2024/10/15 00:00:00"); 
+            days = (now - grt ) / 1000 / 60 / 60 / 24;
+            dnum = Math.floor(days);
+            hours = (now - grt ) / 1000 / 60 / 60 - (24 * dnum);
+            hnum = Math.floor(hours);
+            if(String(hnum).length ==1 ){hnum = "0" + hnum;}
+            minutes = (now - grt ) / 1000 /60 - (24 * 60 * dnum) - (60 * hnum);
+            mnum = Math.floor(minutes);
+            if(String(mnum).length ==1 ){mnum = "0" + mnum;}
+            seconds = (now - grt ) / 1000 - (24 * 60 * 60 * dnum) - (60 * 60 * hnum) - (60 * mnum);
+            snum = Math.round(seconds);
+            if(String(snum).length ==1 ){snum = "0" + snum;}
+
+            document.getElementById("timeDate").innerHTML = "This site has been running smoothly"+dnum+" Days ";
+            document.getElementById("times").innerHTML = hnum + " Hours " + mnum + " Mins " + snum + " Secs"
+        }
+        setInterval("createtime()",250); 
+    </script> 
+
+    
+    <section class="powerby">
+        Built with <a href="https://gohugo.io/" target="_blank" rel="noopener">Hugo</a> <br />
+        
+    </section>
+</footer>
+
+
+    
+<div class="pswp" tabindex="-1" role="dialog" aria-hidden="true">
+
+    
+    <div class="pswp__bg"></div>
+
+    
+    <div class="pswp__scroll-wrap">
+
+        
+        <div class="pswp__container">
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+            <div class="pswp__item"></div>
+        </div>
+
+        
+        <div class="pswp__ui pswp__ui--hidden">
+
+            <div class="pswp__top-bar">
+
+                
+
+                <div class="pswp__counter"></div>
+
+                <button class="pswp__button pswp__button--close" title="Close (Esc)"></button>
+
+                <button class="pswp__button pswp__button--share" title="Share"></button>
+
+                <button class="pswp__button pswp__button--fs" title="Toggle fullscreen"></button>
+
+                <button class="pswp__button pswp__button--zoom" title="Zoom in/out"></button>
+
+                
+                
+                <div class="pswp__preloader">
+                    <div class="pswp__preloader__icn">
+                        <div class="pswp__preloader__cut">
+                            <div class="pswp__preloader__donut"></div>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="pswp__share-modal pswp__share-modal--hidden pswp__single-tap">
+                <div class="pswp__share-tooltip"></div>
+            </div>
+
+            <button class="pswp__button pswp__button--arrow--left" title="Previous (arrow left)">
+            </button>
+
+            <button class="pswp__button pswp__button--arrow--right" title="Next (arrow right)">
+            </button>
+
+            <div class="pswp__caption">
+                <div class="pswp__caption__center"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.js"integrity="sha256-ePwmChbbvXbsO02lbM3HoHbSHTHFAeChekF1xKJdleo="crossorigin="anonymous"
+                defer
+                >
+            </script><script 
+                src="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe-ui-default.min.js"integrity="sha256-UKkzOn/w1mBxRmLLGrSeyB4e1xbrp4xylgAWb3M42pU="crossorigin="anonymous"
+                defer
+                >
+            </script><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/default-skin/default-skin.min.css"crossorigin="anonymous"
+            ><link 
+                rel="stylesheet" 
+                href="https://cdn.jsdelivr.net/npm/photoswipe@4.1.3/dist/photoswipe.min.css"crossorigin="anonymous"
+            >
+    
+
+            </main>
+        </div>
+        <script 
+                src="https://cdn.jsdelivr.net/npm/node-vibrant@3.1.6/dist/vibrant.min.js"integrity="sha256-awcR2jno4kI5X0zL8ex0vi2z&#43;KMkF24hUW8WePSA9HM="crossorigin="anonymous"
+                
+                >
+            </script><script type="text/javascript" src="/ts/main.c922af694cc257bf1ecc41c0dd7b0430f9114ec280ccf67cd2c6ad55f5316c4e.js" defer></script>
+<script>
+    (function () {
+        const customFont = document.createElement('link');
+        customFont.href = "https://fonts.googleapis.com/css2?family=Lato:wght@300;400;700&display=swap";
+
+        customFont.type = "text/css";
+        customFont.rel = "stylesheet";
+
+        document.head.appendChild(customFont);
+    }());
+</script>
+
+    </body>
+</html>
