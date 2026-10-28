@@ -107,8 +107,8 @@ IPA phoneme[]       grapheme()&lt;/p&gt;
 &lt;td class=&#34;lntd&#34;&gt;
 &lt;pre tabindex=&#34;0&#34; class=&#34;chroma&#34;&gt;&lt;code class=&#34;language-fallback&#34; data-lang=&#34;fallback&#34;&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;apple egg igloo otter up book
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;aim eat ice oak moon unicorn 
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;arm earth oar
-&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;out oyster 
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;out oyster
+&lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;arm earth oar 
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;ear air tour
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;about
 &lt;/span&gt;&lt;/span&gt;&lt;span class=&#34;line&#34;&gt;&lt;span class=&#34;cl&#34;&gt;pet bet tip dip kip gap 
@@ -345,6 +345,13 @@ IPA phoneme[]       grapheme()&lt;/p&gt;
 &lt;/h3&gt;&lt;h3 id=&#34;eu-europe-neutral--feud--pneumonia&#34;&gt;(eu) Europe neutral  feud  pneumonia
 &lt;/h3&gt;&lt;h3 id=&#34;eaubeauty&#34;&gt;(eau)beauty
 &lt;/h3&gt;&lt;h3 id=&#34;ewnew-few--dew-view&#34;&gt;(ew)new few  dew view
+&lt;/h3&gt;&lt;h2 id=&#34;out-ou&#34;&gt;&amp;lt;out-[ou]
+&lt;/h2&gt;&lt;h3 id=&#34;ouout--ouch--loud-south-shout&#34;&gt;(ou)out  ouch  loud south shout
+&lt;/h3&gt;&lt;h3 id=&#34;ownow-cow-owl-bow-allow&#34;&gt;(ow)now cow owl bow allow
+&lt;/h3&gt;&lt;h3 id=&#34;ough-plough-bough&#34;&gt;(ough) plough bough
+&lt;/h3&gt;&lt;h2 id=&#34;oyster-oi&#34;&gt;&amp;lt;oyster-[oi]
+&lt;/h2&gt;&lt;h3 id=&#34;oicoin-noise-soil-boil&#34;&gt;(oi)coin noise soil boil
+&lt;/h3&gt;&lt;h3 id=&#34;oyboy-toy-joy---soy&#34;&gt;(oy)boy toy joy   soy
 &lt;/h3&gt;&lt;h2 id=&#34;arm-arah&#34;&gt;&amp;lt;arm-/ar/[ah]
 &lt;/h2&gt;&lt;h3 id=&#34;arcar-artist-hard-star&#34;&gt;(ar)car artist hard star
 &lt;/h3&gt;&lt;h3 id=&#34;afather-bath-b-path-b&#34;&gt;(a)father bath-B path-B
@@ -366,13 +373,7 @@ IPA phoneme[]       grapheme()&lt;/p&gt;
 &lt;/h3&gt;&lt;h3 id=&#34;oaroar-board--roar&#34;&gt;(oar)oar board  roar
 &lt;/h3&gt;&lt;h3 id=&#34;ourfour&#34;&gt;(our)four
 &lt;/h3&gt;&lt;h3 id=&#34;arwar-warn-warrior-warrant-wharf-wart-ward-dwarf&#34;&gt;(ar)war warn warrior warrant wharf wart ward dwarf
-&lt;/h3&gt;&lt;h2 id=&#34;out-ou&#34;&gt;&amp;lt;out-[ou]
-&lt;/h2&gt;&lt;h3 id=&#34;ouout--ouch--loud-south-shout&#34;&gt;(ou)out  ouch  loud south shout
-&lt;/h3&gt;&lt;h3 id=&#34;ownow-cow-owl-bow-allow&#34;&gt;(ow)now cow owl bow allow
-&lt;/h3&gt;&lt;h3 id=&#34;ough-plough-bough&#34;&gt;(ough) plough bough
-&lt;/h3&gt;&lt;h2 id=&#34;oyster-oi&#34;&gt;&amp;lt;oyster-[oi]
-&lt;/h2&gt;&lt;h3 id=&#34;oicoin-noise-soil-boil&#34;&gt;(oi)coin noise soil boil
-&lt;/h3&gt;&lt;h3 id=&#34;oyboy-toy-joy---soy&#34;&gt;(oy)boy toy joy   soy
+&lt;/h3&gt;&lt;h3 id=&#34;&#34;&gt;
 &lt;/h3&gt;&lt;h2 id=&#34;ear-eer&#34;&gt;&amp;lt;ear-[eer]
 &lt;/h2&gt;&lt;h3 id=&#34;eerdeer-cheer-steer-beer&#34;&gt;(eer)deer cheer steer beer
 &lt;/h3&gt;&lt;h3 id=&#34;earear-near-year-rear-hear&#34;&gt;(ear)ear near year rear hear
