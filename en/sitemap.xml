@@ -3,7 +3,7 @@
   xmlns:xhtml="http://www.w3.org/1999/xhtml">
   <url>
     <loc>https://boryswu.github.io/</loc>
-    <lastmod>2026-10-27T17:39:32+08:00</lastmod>
+    <lastmod>2026-10-28T10:43:22+08:00</lastmod>
     <xhtml:link
                 rel="alternate"
                 hreflang="en-us"
@@ -15,10 +15,13 @@
                 href="https://boryswu.github.io/es/"
                 />
   </url><url>
-    <loc>https://boryswu.github.io/p/git/</loc>
-    <lastmod>2026-10-27T17:39:32+08:00</lastmod>
+    <loc>https://boryswu.github.io/p/homo/</loc>
+    <lastmod>2026-10-28T10:43:22+08:00</lastmod>
   </url><url>
     <loc>https://boryswu.github.io/post/</loc>
+    <lastmod>2026-10-28T10:43:22+08:00</lastmod>
+  </url><url>
+    <loc>https://boryswu.github.io/p/git/</loc>
     <lastmod>2026-10-27T17:39:32+08:00</lastmod>
   </url><url>
     <loc>https://boryswu.github.io/p/engsound/</loc>
