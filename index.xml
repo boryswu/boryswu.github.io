@@ -1,4 +1,113 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Fri, 09 Oct 2020 00:00:00 +0000</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Archives</title><link>https://boryswu.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://boryswu.github.io/archives/</guid><description/></item><item><title>About</title><link>https://boryswu.github.io/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://boryswu.github.io/about/</guid><description>&lt;h2 id="2026-10-26"&gt;2026-10-26
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 26 Oct 2026 19:37:55 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Ffmpeg</title><link>https://boryswu.github.io/p/ffmpeg/</link><pubDate>Mon, 26 Oct 2026 19:37:55 +0800</pubDate><guid>https://boryswu.github.io/p/ffmpeg/</guid><description>&lt;h1 id="1只修改音频音量不重新编码视频"&gt;1只修改音频音量，不重新编码视频
+&lt;/h1&gt;&lt;p&gt;&lt;code&gt;ffmpeg -i input.mp4 -filter:a &amp;quot;volume=2.0&amp;quot; -c:v copy output.mp4&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="2微信upload出现0s视频提示"&gt;2微信upload出现0S视频提示
+&lt;/h1&gt;&lt;h3 id="ffprobe检查"&gt;ffprobe检查
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Input #0, mov,mp4,m4a,3gp,3g2,mj2, from &amp;#39;.\x.mp4&amp;#39;:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;major_brand : iso6
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;minor_version : 1
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;compatible_brands: iso6dsmsmsixdash
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;creation_time : 2026-07-28T15:15:48.000000Z
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;encoder : GPAC-2.4-revrelease
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Duration: 00:00:47.60, start: 0.000000, bitrate: 848 kb/s
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stream #0:00x1: Video: h264 (High) (avc1 / 0x31637661), yuv420p(tv, bt709, progressive), 1280x720, 246 kb/s, SAR 1:1 DAR 16:9, 25 fps, 25 tbr, 12800 tbn (default)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;handler_name : VideoHandler
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Stream #0:10x2: Audio: aac (LC) (mp4a / 0x6134706D), 44100 Hz, stereo, fltp, 128 kb/s (default)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Metadata:
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;handler_name : ISO Media file produced by Google Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="文件信息解读"&gt;文件信息解读
+&lt;/h3&gt;&lt;p&gt;文件封装格式：&lt;strong&gt;MP4 (mov 容器)&lt;/strong&gt;&lt;/p&gt;
+&lt;h4 id="元数据-metadata"&gt;元数据 Metadata
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;code&gt;major_brand: iso6&lt;/code&gt;：MP4 版本标识&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;creation_time: 2026-07-28T15:15:48Z&lt;/code&gt;：文件生成时间 UTC&lt;/li&gt;
+&lt;li&gt;&lt;code&gt;encoder: GPAC‑2.4‑revrelease&lt;/code&gt;：由 GPAC（MP4Box）工具生成&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="文件整体信息"&gt;文件整体信息
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;&lt;strong&gt;时长&lt;/strong&gt;：&lt;code&gt;00:00:47.60&lt;/code&gt; → 47.6 秒&lt;/li&gt;
+&lt;li&gt;&lt;strong&gt;总码率&lt;/strong&gt;：&lt;code&gt;848 kb/s&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="视频流-stream-00"&gt;视频流 Stream #0:0
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;编码：&lt;strong&gt;H.264 High Profile&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;色彩：&lt;code&gt;yuv420p&lt;/code&gt;，BT.709 色彩空间（高清视频标准）&lt;/li&gt;
+&lt;li&gt;分辨率：&lt;strong&gt;1280×720 (720P)&lt;/strong&gt;，画面比例 16:9&lt;/li&gt;
+&lt;li&gt;视频码率：&lt;code&gt;246 kb/s&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;帧率：&lt;strong&gt;25fps&lt;/strong&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h4 id="音频流-stream-01"&gt;音频流 Stream #0:1
+&lt;/h4&gt;&lt;ul&gt;
+&lt;li&gt;编码：&lt;strong&gt;AAC‑LC&lt;/strong&gt;&lt;/li&gt;
+&lt;li&gt;采样率：&lt;code&gt;44100 Hz&lt;/code&gt;，立体声&lt;/li&gt;
+&lt;li&gt;音频码率：&lt;code&gt;128 kb/s&lt;/code&gt;&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h3 id="在微信upload时提示是0s"&gt;在微信upload时提示是0s
+&lt;/h3&gt;&lt;h4 id="原因"&gt;原因
+&lt;/h4&gt;&lt;ol&gt;
+&lt;li&gt;GPAC 输出的这个 MP4，&lt;code&gt;moov&lt;/code&gt;盒子（存放时长、轨道索引的元数据）放在&lt;strong&gt;文件末尾&lt;/strong&gt;。&lt;/li&gt;
+&lt;li&gt;微信的解析器只读取文件开头一小段，不会扫描整个文件去找末尾的 moov；读不到时长元数据，直接判定为 0 秒，无法正常发送 / 上传。&lt;/li&gt;
+&lt;li&gt;另外文件品牌标记 &lt;code&gt;compatible_brands: iso6dsmsmsixdash&lt;/code&gt;，这是 DASH 分片兼容标记，普通 MP4 解析器对这种组合兼容性差，加重识别异常。&lt;/li&gt;
+&lt;/ol&gt;
+&lt;p&gt;&lt;strong&gt;本地播放器完整扫描整个文件可以播放；微信只读文件头部，拿不到时长信息 → 0 秒&lt;/strong&gt;。&lt;/p&gt;
+&lt;h4 id="解决办法"&gt;解决办法
+&lt;/h4&gt;&lt;p&gt;修复命令（FFmpeg，无损封装，不重新编码，速度快）&lt;/p&gt;
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -i b.mp4 -c copy -movflags +faststart bfix.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="3用jpg和mp3合成mp4"&gt;3用JPG和MP3合成mp4
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -y -loop 1 -i yarn.jpg -i yarn.mp3 -filter:v &amp;#34;scale=trunc(iw/2)*2:trunc(ih/2)*2&amp;#34; -c:v libx264 -tune stillimage -c:a aac -b:a 192k -pix_fmt yuv420p -shortest output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="4动态文字水印"&gt;4动态文字水印
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -i in.mp4 -vf &amp;#34;drawtext=text=&amp;#39;DYDTEK&amp;#39;:x=mod(60*t\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.6&amp;#34; output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -i in.mp4 -vf &amp;#34;drawtext=fontfile=&amp;#39;C\:/Windows/Fonts/simhei.ttf&amp;#39;:text=&amp;#39;DYDTEK&amp;#39;:x=mod(60*t`\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.6&amp;#34; output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -i in.mp4 -vf &amp;#34;drawtext=fontfile=&amp;#39;C\:/Windows/Fonts/msyhbd.ttc&amp;#39;:text=&amp;#39;dydtek.com&amp;#39;:x=mod(60*t\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.4:borderw=2:bordercolor=black:shadowx=2:shadowy=2:shadowcolor=black@0.4&amp;#34; output.mp4
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Archives</title><link>https://boryswu.github.io/archives/</link><pubDate>Tue, 28 May 2019 00:00:00 +0000</pubDate><guid>https://boryswu.github.io/archives/</guid><description/></item><item><title>About</title><link>https://boryswu.github.io/about/</link><pubDate>Thu, 28 Feb 2019 00:00:00 +0000</pubDate><guid>https://boryswu.github.io/about/</guid><description>&lt;h2 id="2026-10-26"&gt;2026-10-26
 &lt;/h2&gt;&lt;p&gt;hugo_extended_0.160.1_windows-amd64.zip&lt;/p&gt;
 &lt;p&gt;hugo-theme-stack-3.34.2.zip&lt;/p&gt;</description></item><item><title>Links</title><link>https://boryswu.github.io/links/</link><pubDate>Mon, 01 Jan 0001 00:00:00 +0000</pubDate><guid>https://boryswu.github.io/links/</guid><description>&lt;p&gt;To use this feature, add &lt;code&gt;links&lt;/code&gt; section to frontmatter.&lt;/p&gt;
 &lt;p&gt;This page&amp;rsquo;s frontmatter:&lt;/p&gt;
