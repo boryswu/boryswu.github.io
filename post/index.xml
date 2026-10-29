@@ -1,4 +1,1170 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BorysWu</title><link>https://boryswu.github.io/post/</link><description>Recent content in Posts on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 26 Oct 2026 19:37:55 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Ffmpeg</title><link>https://boryswu.github.io/p/ffmpeg/</link><pubDate>Mon, 26 Oct 2026 19:37:55 +0800</pubDate><guid>https://boryswu.github.io/p/ffmpeg/</guid><description>&lt;h1 id="1只修改音频音量不重新编码视频"&gt;1只修改音频音量，不重新编码视频
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BorysWu</title><link>https://boryswu.github.io/post/</link><description>Recent content in Posts on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Wed, 28 Oct 2026 15:58:04 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Winunix</title><link>https://boryswu.github.io/p/winunix/</link><pubDate>Wed, 28 Oct 2026 15:58:04 +0800</pubDate><guid>https://boryswu.github.io/p/winunix/</guid><description>&lt;h1 id="linux和windows之间远程复制"&gt;Linux和windows之间远程复制
+&lt;/h1&gt;&lt;p&gt;scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令
+Windows与linux间的文件复制方法&lt;/p&gt;
+&lt;h2 id="1在windows下文件上传到linux上"&gt;1在windows下文件上传到Linux上
+&lt;/h2&gt;&lt;p&gt;&lt;code&gt;scp E:\Scp_file\backup-platform.zip root@192.168.1.6:/opt/&lt;/code&gt;&lt;/p&gt;
+&lt;h2 id="2linux之间的远程复制文件"&gt;2linux之间的远程复制文件
+&lt;/h2&gt;&lt;h3 id="1登录到远程"&gt;1：登录到远程
+&lt;/h3&gt;&lt;p&gt;ssh &lt;a class="link" href="mailto:mouren@188.188.188.188" &gt;mouren@188.188.188.188&lt;/a&gt;&lt;/p&gt;
+&lt;h3 id="2从远程服务器复制到本地"&gt;2：从远程服务器复制到本地
+&lt;/h3&gt;&lt;h3 id="从远程复制到当前目录"&gt;从远程复制到当前目录
+&lt;/h3&gt;&lt;p&gt;&lt;code&gt;scp mouren@188.188.188.188:/home/mouren/ardu.txt &lt;/code&gt; .&lt;/p&gt;
+&lt;p&gt;&lt;code&gt;scp -r mouren@188.188.188.188:/home/mouren/ardu /home/gl&lt;/code&gt;&lt;/p&gt;
+&lt;h3 id="使用apache服务"&gt;使用apache服务
+&lt;/h3&gt;&lt;p&gt;把文件放到/var/www/html下
+使用IP来访问就可以下载到windows上了&lt;/p&gt;
+&lt;h3 id="3将本地的上传到远程服务器"&gt;3：将本地的上传到远程服务器
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scp xxx mouren@188.188.188.188:/home/nouren
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scp -r xxx mouren@188.188.188.188:/home/nouren
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="rsync的使用"&gt;Rsync的使用
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rsync -a /opt/media/ remote_user@remote_host_or_ip:/opt/media/ 从本地到远程
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rsync -a remote_user@remote_host_or_ip:/opt/media/ /opt/media/ 远程到本地
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Homo</title><link>https://boryswu.github.io/p/homo/</link><pubDate>Wed, 28 Oct 2026 10:43:22 +0800</pubDate><guid>https://boryswu.github.io/p/homo/</guid><description>&lt;h1 id="homophone"&gt;homophone
+&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;torque&lt;/th&gt;
+&lt;th&gt;talk&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;torque&lt;/td&gt;
+&lt;td&gt;talk&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;right&lt;/td&gt;
+&lt;td&gt;write&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;farther&lt;/td&gt;
+&lt;td&gt;father&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;meet&lt;/td&gt;
+&lt;td&gt;meat&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;flower&lt;/td&gt;
+&lt;td&gt;flour&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;for&lt;/td&gt;
+&lt;td&gt;four&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pair&lt;/td&gt;
+&lt;td&gt;pear&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;night&lt;/td&gt;
+&lt;td&gt;knight&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;waste&lt;/td&gt;
+&lt;td&gt;waist&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scent&lt;/td&gt;
+&lt;td&gt;cent&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bored&lt;/td&gt;
+&lt;td&gt;board&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;ate&lt;/td&gt;
+&lt;td&gt;eight&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;mail&lt;/td&gt;
+&lt;td&gt;male&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;I&lt;/td&gt;
+&lt;td&gt;eye&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sale&lt;/td&gt;
+&lt;td&gt;sail&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;see&lt;/td&gt;
+&lt;td&gt;sea&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hair&lt;/td&gt;
+&lt;td&gt;hare&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;son&lt;/td&gt;
+&lt;td&gt;sun&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sight&lt;/td&gt;
+&lt;td&gt;site/cite&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;rain&lt;/td&gt;
+&lt;td&gt;reign /rein&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;poor&lt;/td&gt;
+&lt;td&gt;pour&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;pray&lt;/td&gt;
+&lt;td&gt;prey&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;plain&lt;/td&gt;
+&lt;td&gt;plane&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;peace&lt;/td&gt;
+&lt;td&gt;piece&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;loan&lt;/td&gt;
+&lt;td&gt;lone&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hall&lt;/td&gt;
+&lt;td&gt;haul&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;heal&lt;/td&gt;
+&lt;td&gt;heel&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;hear&lt;/td&gt;
+&lt;td&gt;here&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;fair&lt;/td&gt;
+&lt;td&gt;fare&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;die&lt;/td&gt;
+&lt;td&gt;dye&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;dear&lt;/td&gt;
+&lt;td&gt;deer&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;coarse&lt;/td&gt;
+&lt;td&gt;course&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cereal&lt;/td&gt;
+&lt;td&gt;serial&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;cell&lt;/td&gt;
+&lt;td&gt;sell&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;brake&lt;/td&gt;
+&lt;td&gt;break&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;which&lt;/td&gt;
+&lt;td&gt;witch&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;whether&lt;/td&gt;
+&lt;td&gt;weather&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;way&lt;/td&gt;
+&lt;td&gt;weigh&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;wait&lt;/td&gt;
+&lt;td&gt;weight&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;tail&lt;/td&gt;
+&lt;td&gt;tale&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;their&lt;/td&gt;
+&lt;td&gt;there&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;weak&lt;/td&gt;
+&lt;td&gt;week&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;wave&lt;/td&gt;
+&lt;td&gt;waive&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;aural&lt;/td&gt;
+&lt;td&gt;oral&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;our&lt;/td&gt;
+&lt;td&gt;hour&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;wear&lt;/td&gt;
+&lt;td&gt;where&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;no&lt;/td&gt;
+&lt;td&gt;know&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;new&lt;/td&gt;
+&lt;td&gt;knew&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;buy&lt;/td&gt;
+&lt;td&gt;bye&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id="homograph"&gt;homograph
+&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Bat&lt;/th&gt;
+&lt;th&gt;bat&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;quarter&lt;/td&gt;
+&lt;td&gt;quarter&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bank&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;bar&lt;/td&gt;
+&lt;td&gt;bar&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;desert&lt;/td&gt;
+&lt;td&gt;desert&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;left&lt;/td&gt;
+&lt;td&gt;left&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;</description></item><item><title>Git</title><link>https://boryswu.github.io/p/git/</link><pubDate>Tue, 27 Oct 2026 17:39:32 +0800</pubDate><guid>https://boryswu.github.io/p/git/</guid><description>&lt;h1 id="ssh-pull"&gt;ssh-pull
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;span class="lnt"&gt;9
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global user.email &amp;#34;add164@gmail.com&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global user.name &amp;#34;add164&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;//初始化本地的repository
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git init
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git add .
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git commit -m &amp;#34;My first commit&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git branch -M main
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git remote add origin git@github.com:he/he.git
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git push -u origin main
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="configure"&gt;configure
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global user.name &amp;#34; name&amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global user.email &amp;#34;email &amp;#34;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;git config --global color.ui auto
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="status"&gt;status
+&lt;/h1&gt;&lt;p&gt;&lt;code&gt;git status&lt;/code&gt;
+&lt;code&gt;git diff&lt;/code&gt;
+&lt;code&gt;git diff --staged&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="remote"&gt;remote
+&lt;/h1&gt;&lt;ol&gt;
+&lt;li&gt;查看remote &lt;code&gt;git remote -v&lt;/code&gt;&lt;/li&gt;
+&lt;li&gt;移除remote &lt;code&gt;git remote remove origin&lt;/code&gt;&lt;/li&gt;
+&lt;/ol&gt;
+&lt;h1 id="branch"&gt;branch
+&lt;/h1&gt;&lt;p&gt;&lt;code&gt;git branch &lt;/code&gt;
+&lt;code&gt;git branch -a&lt;/code&gt;&lt;/p&gt;
+&lt;h1 id="clone"&gt;clone
+&lt;/h1&gt;&lt;p&gt;git clone不包含仓库名字目录 &lt;code&gt;git clone git@github.com:xx/xx.github.io.git ./&lt;/code&gt;&lt;/p&gt;</description></item><item><title>Engsound</title><link>https://boryswu.github.io/p/engsound/</link><pubDate>Tue, 27 Oct 2026 11:23:46 +0800</pubDate><guid>https://boryswu.github.io/p/engsound/</guid><description>&lt;h1 id="1-44sounds"&gt;1 44sounds
+&lt;/h1&gt;&lt;p&gt;DJ(IPA88):RP received pronunciation&lt;/p&gt;
+&lt;p&gt;KK GA:general american&lt;/p&gt;
+&lt;p&gt;native using respelling &amp;amp;phonics&lt;/p&gt;
+&lt;p&gt;vowel:without restriction&lt;/p&gt;
+&lt;p&gt;Consonant:no restrication voiced:vibrant&lt;/p&gt;
+&lt;p&gt;IPA:symbol to represent the sound&lt;/p&gt;
+&lt;p&gt;sounds:physical muscle&lt;/p&gt;
+&lt;p&gt;44sounds&amp;ndash;phoneme&amp;ndash;20vowel+24 spelling&amp;ndash;graphemes
+IPA phoneme[] grapheme()&lt;/p&gt;
+&lt;p&gt;diphthong:ou oi&lt;/p&gt;
+&lt;p&gt;digraph:sh ch th&lt;/p&gt;
+&lt;p&gt;blending:pl pr tr&lt;/p&gt;
+&lt;h1 id="2ultimate"&gt;2ultimate
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apple egg igloo otter up book
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;aim eat ice oak moon unicorn
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;out oyster
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;arm earth oar
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ear air tour
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;about
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pet bet tip dip kip gap
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;map nap sing
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fan van three this sun zoo shark
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;beige hat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;march jet
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wet rat yak
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;let
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;box quit
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
+&lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
+&lt;/span&gt;&lt;span class="lnt"&gt;30
+&lt;/span&gt;&lt;span class="lnt"&gt;31
+&lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
+&lt;/span&gt;&lt;span class="lnt"&gt;34
+&lt;/span&gt;&lt;span class="lnt"&gt;35
+&lt;/span&gt;&lt;span class="lnt"&gt;36
+&lt;/span&gt;&lt;span class="lnt"&gt;37
+&lt;/span&gt;&lt;span class="lnt"&gt;38
+&lt;/span&gt;&lt;span class="lnt"&gt;39
+&lt;/span&gt;&lt;span class="lnt"&gt;40
+&lt;/span&gt;&lt;span class="lnt"&gt;41
+&lt;/span&gt;&lt;span class="lnt"&gt;42
+&lt;/span&gt;&lt;span class="lnt"&gt;43
+&lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-gdscript3" data-lang="gdscript3"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;That&lt;/span&gt; &lt;span class="n"&gt;fat&lt;/span&gt; &lt;span class="n"&gt;cat&lt;/span&gt; &lt;span class="n"&gt;sat&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;rat&lt;/span&gt;&lt;span class="o"&gt;.&lt;/span&gt; &lt;span class="n"&gt;Now&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s flat as a mat&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;clever&lt;/span&gt; &lt;span class="n"&gt;never&lt;/span&gt; &lt;span class="n"&gt;ever&lt;/span&gt; &lt;span class="n"&gt;say&lt;/span&gt; &lt;span class="n"&gt;Never&lt;/span&gt; &lt;span class="n"&gt;ever&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;stick&lt;/span&gt; &lt;span class="n"&gt;isn&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t thick, you&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ll&lt;/span&gt; &lt;span class="n"&gt;split&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;you&lt;/span&gt; &lt;span class="n"&gt;hit&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Doctor&lt;/span&gt; &lt;span class="n"&gt;Oscar&lt;/span&gt; &lt;span class="n"&gt;often&lt;/span&gt; &lt;span class="n"&gt;operates&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;opposition&lt;/span&gt; &lt;span class="n"&gt;politicians&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;Mother&lt;/span&gt; &lt;span class="n"&gt;had&lt;/span&gt; &lt;span class="n"&gt;another&lt;/span&gt; &lt;span class="n"&gt;brother&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;d have another uncle&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;cook&lt;/span&gt; &lt;span class="n"&gt;shook&lt;/span&gt; &lt;span class="n"&gt;when&lt;/span&gt; &lt;span class="n"&gt;he&lt;/span&gt; &lt;span class="n"&gt;took&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;look&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;cook&lt;/span&gt; &lt;span class="n"&gt;book&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;there&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s a delay, they pay to stay another day&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Don&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t freeze the cheese, please, Louise&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Mike&lt;/span&gt; &lt;span class="n"&gt;likes&lt;/span&gt; &lt;span class="n"&gt;bikes&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;spikes&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;ride&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;ice&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Joan&lt;/span&gt; &lt;span class="n"&gt;won&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t go home to Rome by boat alone&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Whose&lt;/span&gt; &lt;span class="n"&gt;two&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;blue&lt;/span&gt; &lt;span class="n"&gt;shoes&lt;/span&gt; &lt;span class="n"&gt;did&lt;/span&gt; &lt;span class="n"&gt;Sue&lt;/span&gt; &lt;span class="n"&gt;lose&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Famous&lt;/span&gt; &lt;span class="n"&gt;stars&lt;/span&gt; &lt;span class="n"&gt;smoke&lt;/span&gt; &lt;span class="n"&gt;cigars&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;cars&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;bars&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Bert&lt;/span&gt; &lt;span class="n"&gt;wasn&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t hurt but got dirt on his shirt&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;She&lt;/span&gt; &lt;span class="n"&gt;caught&lt;/span&gt; &lt;span class="n"&gt;her&lt;/span&gt; &lt;span class="n"&gt;daughter&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;water&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;naughty&lt;/span&gt; &lt;span class="n"&gt;boy&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;I&lt;/span&gt; &lt;span class="n"&gt;doubt&lt;/span&gt; &lt;span class="n"&gt;he&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ll clout the lout who stole his trout. He&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;ll&lt;/span&gt; &lt;span class="n"&gt;shout&lt;/span&gt; &lt;span class="n"&gt;out&lt;/span&gt; &lt;span class="n"&gt;loud&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;noise&lt;/span&gt; &lt;span class="n"&gt;from&lt;/span&gt; &lt;span class="n"&gt;Roy&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s toys annoys other boys&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;It&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s clear the beer is dear here&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;They&lt;/span&gt; &lt;span class="n"&gt;dare&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;stare&lt;/span&gt; &lt;span class="n"&gt;at&lt;/span&gt; &lt;span class="n"&gt;fair&lt;/span&gt; &lt;span class="n"&gt;hair&lt;/span&gt; &lt;span class="n"&gt;because&lt;/span&gt; &lt;span class="n"&gt;it&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s rare there&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;If&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;water&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;tour&lt;/span&gt; &lt;span class="n"&gt;isn&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;t pure, you can&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;t&lt;/span&gt; &lt;span class="n"&gt;be&lt;/span&gt; &lt;span class="n"&gt;sure&lt;/span&gt; &lt;span class="n"&gt;there&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ll be a cure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;moment&lt;/span&gt; &lt;span class="n"&gt;ago&lt;/span&gt; &lt;span class="n"&gt;he&lt;/span&gt; &lt;span class="n"&gt;announced&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;new&lt;/span&gt; &lt;span class="n"&gt;address&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Pete&lt;/span&gt; &lt;span class="n"&gt;persuaded&lt;/span&gt; &lt;span class="n"&gt;Pam&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;pick&lt;/span&gt; &lt;span class="n"&gt;up&lt;/span&gt; &lt;span class="n"&gt;Paula&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s parcel at the post office&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Barry&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s barrel of beer was a better buy than Bob&amp;#39;&lt;/span&gt;&lt;span class="n"&gt;s&lt;/span&gt; &lt;span class="n"&gt;bargain&lt;/span&gt; &lt;span class="n"&gt;bottles&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Toddlers&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; toilet training takes time&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Dad&lt;/span&gt; &lt;span class="n"&gt;does&lt;/span&gt; &lt;span class="n"&gt;detest&lt;/span&gt; &lt;span class="n"&gt;dealing&lt;/span&gt; &lt;span class="n"&gt;with&lt;/span&gt; &lt;span class="n"&gt;dogs&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39; droppings in the driveway&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Cairo&lt;/span&gt; &lt;span class="n"&gt;kids&lt;/span&gt; &lt;span class="n"&gt;quickly&lt;/span&gt; &lt;span class="n"&gt;catch&lt;/span&gt; &lt;span class="n"&gt;colds&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Canada&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;giggling&lt;/span&gt; &lt;span class="n"&gt;girls&lt;/span&gt; &lt;span class="n"&gt;gradually&lt;/span&gt; &lt;span class="n"&gt;got&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;grip&lt;/span&gt; &lt;span class="n"&gt;on&lt;/span&gt; &lt;span class="n"&gt;themselves&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Most&lt;/span&gt; &lt;span class="n"&gt;managers&lt;/span&gt; &lt;span class="n"&gt;make&lt;/span&gt; &lt;span class="n"&gt;much&lt;/span&gt; &lt;span class="n"&gt;more&lt;/span&gt; &lt;span class="n"&gt;money&lt;/span&gt; &lt;span class="n"&gt;than&lt;/span&gt; &lt;span class="n"&gt;me&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;I&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;ll naturally never know Naples like my Neapolitan neighbour&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Karaoke&lt;/span&gt; &lt;span class="n"&gt;king&lt;/span&gt; &lt;span class="n"&gt;Bing&lt;/span&gt; &lt;span class="n"&gt;sang&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;long&lt;/span&gt; &lt;span class="n"&gt;song&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;Hong&lt;/span&gt; &lt;span class="n"&gt;Kong&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Inefficient&lt;/span&gt; &lt;span class="n"&gt;farmers&lt;/span&gt; &lt;span class="n"&gt;fear&lt;/span&gt; &lt;span class="n"&gt;future&lt;/span&gt; &lt;span class="n"&gt;foreign&lt;/span&gt; &lt;span class="n"&gt;food&lt;/span&gt; &lt;span class="n"&gt;imports&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Vera&lt;/span&gt; &lt;span class="n"&gt;values&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;variety&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;vitamins&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;vegetables&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;A&lt;/span&gt; &lt;span class="n"&gt;thirsty&lt;/span&gt; &lt;span class="n"&gt;thief&lt;/span&gt; &lt;span class="n"&gt;thanked&lt;/span&gt; &lt;span class="n"&gt;Theo&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;his&lt;/span&gt; &lt;span class="n"&gt;thermos&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;It&lt;/span&gt;&lt;span class="s1"&gt;&amp;#39;s the weather there that bothers them&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Super&lt;/span&gt; &lt;span class="n"&gt;salesmen&lt;/span&gt; &lt;span class="n"&gt;soon&lt;/span&gt; &lt;span class="n"&gt;succeed&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;selling&lt;/span&gt; &lt;span class="n"&gt;something&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;The&lt;/span&gt; &lt;span class="n"&gt;zippy&lt;/span&gt; &lt;span class="n"&gt;Zaire&lt;/span&gt; &lt;span class="n"&gt;zebra&lt;/span&gt; &lt;span class="n"&gt;zigzagged&lt;/span&gt; &lt;span class="n"&gt;through&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;Zurich&lt;/span&gt; &lt;span class="n"&gt;zoo&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;She&lt;/span&gt; &lt;span class="n"&gt;showed&lt;/span&gt; &lt;span class="n"&gt;the&lt;/span&gt; &lt;span class="n"&gt;shy&lt;/span&gt; &lt;span class="n"&gt;shogun&lt;/span&gt; &lt;span class="n"&gt;a&lt;/span&gt; &lt;span class="n"&gt;Shinto&lt;/span&gt; &lt;span class="n"&gt;shrine&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;should&lt;/span&gt; &lt;span class="n"&gt;treasure&lt;/span&gt; &lt;span class="n"&gt;leisure&lt;/span&gt; &lt;span class="k"&gt;for&lt;/span&gt; &lt;span class="n"&gt;its&lt;/span&gt; &lt;span class="n"&gt;immeasurable&lt;/span&gt; &lt;span class="n"&gt;pleasure&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;When&lt;/span&gt; &lt;span class="n"&gt;Helen&lt;/span&gt; &lt;span class="n"&gt;had&lt;/span&gt; &lt;span class="n"&gt;Harry&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;her&lt;/span&gt; &lt;span class="n"&gt;husband&lt;/span&gt; &lt;span class="n"&gt;hurried&lt;/span&gt; &lt;span class="n"&gt;her&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;hospital&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Charles&lt;/span&gt; &lt;span class="n"&gt;said&lt;/span&gt; &lt;span class="n"&gt;cherries&lt;/span&gt;&lt;span class="p"&gt;,&lt;/span&gt; &lt;span class="n"&gt;cheese&lt;/span&gt; &lt;span class="ow"&gt;and&lt;/span&gt; &lt;span class="n"&gt;chocolate&lt;/span&gt; &lt;span class="n"&gt;are&lt;/span&gt; &lt;span class="n"&gt;cheap&lt;/span&gt; &lt;span class="ow"&gt;in&lt;/span&gt; &lt;span class="n"&gt;China&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Jolting&lt;/span&gt; &lt;span class="n"&gt;gelignite&lt;/span&gt; &lt;span class="n"&gt;is&lt;/span&gt; &lt;span class="n"&gt;generally&lt;/span&gt; &lt;span class="n"&gt;jolly&lt;/span&gt; &lt;span class="n"&gt;dangerous&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;We&lt;/span&gt; &lt;span class="n"&gt;await&lt;/span&gt; &lt;span class="n"&gt;snowy&lt;/span&gt; &lt;span class="n"&gt;winter&lt;/span&gt; &lt;span class="n"&gt;weather&lt;/span&gt; &lt;span class="n"&gt;without&lt;/span&gt; &lt;span class="n"&gt;warm&lt;/span&gt; &lt;span class="n"&gt;winds&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Ronald&lt;/span&gt; &lt;span class="n"&gt;Reagan&lt;/span&gt; &lt;span class="n"&gt;wrecked&lt;/span&gt; &lt;span class="n"&gt;his&lt;/span&gt; &lt;span class="n"&gt;red&lt;/span&gt; &lt;span class="n"&gt;Rolls&lt;/span&gt; &lt;span class="n"&gt;Royce&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;You&lt;/span&gt; &lt;span class="n"&gt;used&lt;/span&gt; &lt;span class="n"&gt;your&lt;/span&gt; &lt;span class="n"&gt;yellow&lt;/span&gt; &lt;span class="n"&gt;uniform&lt;/span&gt; &lt;span class="n"&gt;yesterday&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;Larry&lt;/span&gt; &lt;span class="n"&gt;lured&lt;/span&gt; &lt;span class="n"&gt;lots&lt;/span&gt; &lt;span class="n"&gt;of&lt;/span&gt; &lt;span class="n"&gt;lovely&lt;/span&gt; &lt;span class="n"&gt;ladies&lt;/span&gt; &lt;span class="n"&gt;to&lt;/span&gt; &lt;span class="n"&gt;his&lt;/span&gt; &lt;span class="n"&gt;lair&lt;/span&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="3-blending"&gt;3 blending
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;clam
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;crab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;drag
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;flag
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;frost
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;glad
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;plan
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;print
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;scrab
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;skin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;slam
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;smug
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;snap
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;spat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;splat
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sprig
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;squid
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;step
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;strap
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;swam
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;trap
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;twig
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="20-vowel"&gt;20 Vowel
+&lt;/h1&gt;&lt;h2 id="apple-a"&gt;apple-[a]
+&lt;/h2&gt;&lt;h3 id="aapple-ant--and"&gt;(a)apple ant and
+&lt;/h3&gt;&lt;h2 id="egg-e"&gt;&amp;lt;egg-[e]
+&lt;/h2&gt;&lt;h3 id="eegg--bed"&gt;(e)egg bed
+&lt;/h3&gt;&lt;h3 id="eahead-deaf-dead-realm-bread-breath-sweat"&gt;(ea)head deaf dead realm bread breath sweat
+&lt;/h3&gt;&lt;h3 id="aisaid-again"&gt;(ai)said again
+&lt;/h3&gt;&lt;h2 id="igloo-i"&gt;&amp;lt;igloo-[i]
+&lt;/h2&gt;&lt;h3 id="iigloo-ink"&gt;(i)igloo ink
+&lt;/h3&gt;&lt;h3 id="eestate-england-ellipsis---escape"&gt;(e)estate england ellipsis escape
+&lt;/h3&gt;&lt;h3 id="yhymn-acronym"&gt;(y)hymn acronym
+&lt;/h3&gt;&lt;h3 id="owomen"&gt;(o)women
+&lt;/h3&gt;&lt;h2 id="otter-o"&gt;&amp;lt;otter-[o]
+&lt;/h2&gt;&lt;h3 id="ootter-orange"&gt;(o)otter orange
+&lt;/h3&gt;&lt;h3 id="hohonest-honor"&gt;(ho)honest honor
+&lt;/h3&gt;&lt;h3 id="wawant-watch"&gt;(wa)want watch
+&lt;/h3&gt;&lt;h3 id="quaqualify-squad"&gt;(qua)qualify squad
+&lt;/h3&gt;&lt;h2 id="up-u"&gt;&amp;lt;up-/u/
+&lt;/h2&gt;&lt;h3 id="uup--umbrella-mug"&gt;(u)up umbrella mug
+&lt;/h3&gt;&lt;h3 id="aulaugh-aunt"&gt;(au)laugh aunt
+&lt;/h3&gt;&lt;h3 id="oson-money-month-mother-brother-cover-glove-love-other-oven-some-come-love-none-done"&gt;(o)son money month mother brother cover glove love other oven some come love none done
+&lt;/h3&gt;&lt;h3 id="outouch--double-couple-trouble-tough"&gt;(ou)touch double couple trouble tough
+&lt;/h3&gt;&lt;h3 id="ooblood-flood"&gt;(oo)blood flood
+&lt;/h3&gt;&lt;h2 id="book-oo"&gt;&amp;lt;book-/oo/
+&lt;/h2&gt;&lt;h3 id="oo-book-good-wood"&gt;(oo) book good wood
+&lt;/h3&gt;&lt;h3 id="uput-push"&gt;(u)put push
+&lt;/h3&gt;&lt;h3 id="owolf"&gt;(o)wolf
+&lt;/h3&gt;&lt;h3 id="oulcould-should"&gt;(oul)could should
+&lt;/h3&gt;&lt;h2 id="aim-ai"&gt;&amp;lt;aim-/ai/
+&lt;/h2&gt;&lt;h3 id="ai-aim-nail-mail-rain-aid-wait"&gt;(ai) aim nail mail rain aid wait
+&lt;/h3&gt;&lt;h3 id="aacorn-baby-apron"&gt;(a)acorn baby apron
+&lt;/h3&gt;&lt;h3 id="aecake-lake-tape"&gt;(ae)cake lake tape
+&lt;/h3&gt;&lt;h3 id="ayday-bay-hay-tray"&gt;(ay)day bay hay tray
+&lt;/h3&gt;&lt;h3 id="eyprey-obey-hey-they-grey"&gt;(ey)prey obey hey they grey
+&lt;/h3&gt;&lt;h3 id="eigheight-weight-sleigh"&gt;(eigh)eight weight sleigh
+&lt;/h3&gt;&lt;h3 id="eivein-reindeer-veil-surveillance"&gt;(ei)vein reindeer veil surveillance
+&lt;/h3&gt;&lt;h3 id="eabreak-great-steak"&gt;(ea)break great steak
+&lt;/h3&gt;&lt;h3 id="augauge"&gt;(au)gauge
+&lt;/h3&gt;&lt;h2 id="eat-ee"&gt;&amp;lt;eat-[ee]
+&lt;/h2&gt;&lt;h3 id="eebee--beef-sheep"&gt;(ee)bee beef sheep
+&lt;/h3&gt;&lt;h3 id="eemail-me-evening-he-she--evil-hyena"&gt;(e)email me evening he she evil hyena
+&lt;/h3&gt;&lt;h3 id="eaeat-tea-easy"&gt;(ea)eat tea easy
+&lt;/h3&gt;&lt;h3 id="eykey-valley"&gt;(ey)key valley
+&lt;/h3&gt;&lt;h3 id="ylady-puppy"&gt;(y)lady puppy
+&lt;/h3&gt;&lt;h3 id="eireceive-receipt-ceiling-protein"&gt;(ei)receive receipt ceiling protein
+&lt;/h3&gt;&lt;h3 id="iebrief-chief-shield-diesel-yield"&gt;(ie)brief chief shield diesel yield
+&lt;/h3&gt;&lt;h3 id="eopeople"&gt;(eo)people
+&lt;/h3&gt;&lt;h2 id="ice-igh"&gt;&amp;lt;ice-/igh/
+&lt;/h2&gt;&lt;h3 id="ighnight-light-high-neighborhood"&gt;(igh)night light high neighborhood
+&lt;/h3&gt;&lt;h3 id="ibehind-tiger-behind-spider"&gt;(i)behind tiger behind spider
+&lt;/h3&gt;&lt;h3 id="iepie-kite--movie"&gt;(ie)pie kite movie
+&lt;/h3&gt;&lt;h3 id="ybuy-fly-shy-sunny-spy"&gt;(y)buy fly shy sunny spy
+&lt;/h3&gt;&lt;h3 id="isisland--aiaisle"&gt;(is)island (ai)aisle
+&lt;/h3&gt;&lt;h2 id="oak-oa"&gt;&amp;lt;oak-/oa/
+&lt;/h2&gt;&lt;h3 id="oaoak-load-boat-coat---road"&gt;(oa)oak load boat coat road
+&lt;/h3&gt;&lt;h3 id="oopen-piano"&gt;(o)open piano
+&lt;/h3&gt;&lt;h3 id="oetoe-home-rope"&gt;(oe)toe home rope
+&lt;/h3&gt;&lt;h3 id="owlow-snow-own-fellow-below-shadow-mow-widow-grow-elbow"&gt;(ow)low snow own fellow below shadow mow widow grow elbow
+&lt;/h3&gt;&lt;h3 id="oughdough-though"&gt;(ough)dough though
+&lt;/h3&gt;&lt;h3 id="eauplateau-bureau--chateau"&gt;(eau)plateau bureau chateau
+&lt;/h3&gt;&lt;h3 id="oobrooch--ousoul-shoulder"&gt;(oo)brooch (ou)soul shoulder
+&lt;/h3&gt;&lt;h2 id="moon-oo"&gt;&amp;lt;moon-/oo/
+&lt;/h2&gt;&lt;h3 id="oomoon-roof"&gt;(oo)moon roof
+&lt;/h3&gt;&lt;h3 id="ueblue-glue-rule--flute"&gt;(ue)blue glue rule flute
+&lt;/h3&gt;&lt;h3 id="uifruit-suit--cruise"&gt;(ui)fruit suit cruise
+&lt;/h3&gt;&lt;h3 id="ousoup-coupon-cougar-group-acoustic-courier"&gt;(ou)soup coupon cougar group acoustic courier
+&lt;/h3&gt;&lt;h3 id="omove-tomb-womb"&gt;(o)move tomb womb
+&lt;/h3&gt;&lt;h3 id="ewscrew--chew-brew-sewage"&gt;(ew)screw chew brew sewage
+&lt;/h3&gt;&lt;h2 id="unicorn2-soundsyoo"&gt;&amp;lt;unicorn&amp;ndash;2 sounds/yoo/
+&lt;/h2&gt;&lt;h3 id="uunicorn-uniform-human"&gt;(u)unicorn uniform human
+&lt;/h3&gt;&lt;h3 id="youyou"&gt;(you)you
+&lt;/h3&gt;&lt;h3 id="ue-cue-value-fuel--tube-cube-mute-huge-use"&gt;(ue) cue value fuel tube cube mute huge use
+&lt;/h3&gt;&lt;h3 id="eu-europe-neutral--feud--pneumonia"&gt;(eu) Europe neutral feud pneumonia
+&lt;/h3&gt;&lt;h3 id="eaubeauty"&gt;(eau)beauty
+&lt;/h3&gt;&lt;h3 id="ewnew-few--dew-view"&gt;(ew)new few dew view
+&lt;/h3&gt;&lt;h2 id="out-ou"&gt;&amp;lt;out-[ou]
+&lt;/h2&gt;&lt;h3 id="ouout--ouch--loud-south-shout"&gt;(ou)out ouch loud south shout
+&lt;/h3&gt;&lt;h3 id="ownow-cow-owl-bow-allow"&gt;(ow)now cow owl bow allow
+&lt;/h3&gt;&lt;h3 id="ough-plough-bough"&gt;(ough) plough bough
+&lt;/h3&gt;&lt;h2 id="oyster-oi"&gt;&amp;lt;oyster-[oi]
+&lt;/h2&gt;&lt;h3 id="oicoin-noise-soil-boil"&gt;(oi)coin noise soil boil
+&lt;/h3&gt;&lt;h3 id="oyboy-toy-joy---soy"&gt;(oy)boy toy joy soy
+&lt;/h3&gt;&lt;h2 id="arm-arah"&gt;&amp;lt;arm-/ar/[ah]
+&lt;/h2&gt;&lt;h3 id="arcar-artist-hard-star"&gt;(ar)car artist hard star
+&lt;/h3&gt;&lt;h3 id="afather-bath-b-path-b"&gt;(a)father bath-B path-B
+&lt;/h3&gt;&lt;h3 id="alpalm-calm-half-calf"&gt;(al)palm calm half calf
+&lt;/h3&gt;&lt;h2 id="earth-er"&gt;&amp;lt;earth-/er/
+&lt;/h2&gt;&lt;h3 id="ermermaid-herb-verb--term"&gt;(er)mermaid herb verb term
+&lt;/h3&gt;&lt;h3 id="irbird-birth-dirt"&gt;(ir)bird birth dirt
+&lt;/h3&gt;&lt;h3 id="urcurl-turn-nurse-burn-hurt-urban"&gt;(ur)curl turn nurse burn hurt urban
+&lt;/h3&gt;&lt;h3 id="worwork-world--worm-worship"&gt;(wor)work world worm worship
+&lt;/h3&gt;&lt;h3 id="earsearch-earth-earn-early-learn--pearl-rehearsal-heard"&gt;(ear)search earth earn early learn pearl rehearsal heard
+&lt;/h3&gt;&lt;h2 id="oar-or-aw"&gt;&amp;lt;oar-/or/ [aw]
+&lt;/h2&gt;&lt;h3 id="or-fork-horn-cork-north"&gt;(or) fork horn cork north
+&lt;/h3&gt;&lt;h3 id="awlaw-paw-raw-saw-dawn-yawn-awkward-awful"&gt;(aw)law paw raw saw dawn yawn awkward awful
+&lt;/h3&gt;&lt;h3 id="ausauce-launch-haul-august"&gt;(au)sauce launch haul august
+&lt;/h3&gt;&lt;h3 id="altalk-chalk-salt-malt--walnut-walrus"&gt;(al)talk chalk salt malt walnut walrus
+&lt;/h3&gt;&lt;h3 id="all-all-hall-ball-fall"&gt;(all) all hall ball fall
+&lt;/h3&gt;&lt;h3 id="oresnore-core"&gt;(ore)snore core
+&lt;/h3&gt;&lt;h3 id="oordoor"&gt;(oor)door
+&lt;/h3&gt;&lt;h3 id="oaroar-board--roar"&gt;(oar)oar board roar
+&lt;/h3&gt;&lt;h3 id="ourfour"&gt;(our)four
+&lt;/h3&gt;&lt;h3 id="arwar-warn-warrior-warrant-wharf-wart-ward-dwarf"&gt;(ar)war warn warrior warrant wharf wart ward dwarf
+&lt;/h3&gt;&lt;h3 id=""&gt;
+&lt;/h3&gt;&lt;h2 id="ear-eer"&gt;&amp;lt;ear-[eer]
+&lt;/h2&gt;&lt;h3 id="eerdeer-cheer-steer-beer"&gt;(eer)deer cheer steer beer
+&lt;/h3&gt;&lt;h3 id="earear-near-year-rear-hear"&gt;(ear)ear near year rear hear
+&lt;/h3&gt;&lt;h3 id="ere-here--adhere-sphere-severe-interfere-sincere"&gt;(ere) here adhere sphere severe interfere sincere
+&lt;/h3&gt;&lt;h3 id="iercashier--pier-tier"&gt;(ier)cashier pier tier
+&lt;/h3&gt;&lt;h3 id="einterior-criterion"&gt;(e)interior criterion
+&lt;/h3&gt;&lt;h2 id="air-air"&gt;&amp;lt;air-[air]
+&lt;/h2&gt;&lt;h3 id="airair-hair-pair"&gt;(air)air hair pair
+&lt;/h3&gt;&lt;h3 id="arehare-spare-care-square"&gt;(are)hare spare care square
+&lt;/h3&gt;&lt;h3 id="erewhere-there"&gt;(ere)where there
+&lt;/h3&gt;&lt;h3 id="eirtheir"&gt;(eir)their
+&lt;/h3&gt;&lt;h3 id="earbear-swear-pear"&gt;(ear)bear swear pear
+&lt;/h3&gt;&lt;h2 id="tour-oor"&gt;&amp;lt;tour-/oor/
+&lt;/h2&gt;&lt;h3 id="ourtour"&gt;(our)tour
+&lt;/h3&gt;&lt;h3 id="uplural"&gt;(u)plural
+&lt;/h3&gt;&lt;h3 id="uresure-cure-pure"&gt;(ure)sure cure pure
+&lt;/h3&gt;&lt;h2 id="about-schwa"&gt;&amp;lt;about-schwa
+&lt;/h2&gt;&lt;h3 id="aabout-panda--astute"&gt;(a)about panda astute
+&lt;/h3&gt;&lt;h3 id="erfarmer-mixer-under-river-teacher-sister"&gt;(er)farmer mixer under river teacher sister
+&lt;/h3&gt;&lt;h3 id="ordoctor-color-tutor"&gt;(or)doctor color tutor
+&lt;/h3&gt;&lt;h3 id="retheatre-acre-massacre"&gt;(re)theatre acre massacre
+&lt;/h3&gt;&lt;h3 id="ipolarity-charity"&gt;(i)polarity charity
+&lt;/h3&gt;&lt;h3 id="arwizard-leopard-hazard-mustard"&gt;(ar)wizard leopard hazard mustard
+&lt;/h3&gt;&lt;h1 id="24-consonant"&gt;24 Consonant
+&lt;/h1&gt;&lt;h2 id="001pet"&gt;001&amp;lt;pet
+&lt;/h2&gt;&lt;h3 id="ppet-pig-pen"&gt;(p)pet pig pen
+&lt;/h3&gt;&lt;h3 id="ppapple-happy-puppet"&gt;(pp)apple happy puppet
+&lt;/h3&gt;&lt;h2 id="bet"&gt;&amp;lt;bet
+&lt;/h2&gt;&lt;h3 id="bbet-bat"&gt;(b)bet bat
+&lt;/h3&gt;&lt;h3 id="bbrabbit"&gt;(bb)rabbit
+&lt;/h3&gt;&lt;h3 id="bubuild"&gt;(bu)build
+&lt;/h3&gt;&lt;h2 id="tip"&gt;&amp;lt;tip
+&lt;/h2&gt;&lt;h3 id="ttip-tent"&gt;(t)tip tent
+&lt;/h3&gt;&lt;h3 id="ttletter-butter-kitty"&gt;(tt)letter butter kitty
+&lt;/h3&gt;&lt;h3 id="edlooked-ripped-skipped"&gt;(ed)looked ripped skipped
+&lt;/h3&gt;&lt;h2 id="dip"&gt;&amp;lt;dip
+&lt;/h2&gt;&lt;h3 id="ddig-dig"&gt;(d)dig dig
+&lt;/h3&gt;&lt;h3 id="ddpuddle-daddy-add"&gt;(dd)puddle daddy add
+&lt;/h3&gt;&lt;h3 id="edrained-played"&gt;(ed)rained played
+&lt;/h3&gt;&lt;h2 id="kip"&gt;&amp;lt;kip
+&lt;/h2&gt;&lt;h3 id="kkit-link-park"&gt;(k)kit link park
+&lt;/h3&gt;&lt;h3 id="caoucap-cup"&gt;(c+a/o/u)cap cup
+&lt;/h3&gt;&lt;h3 id="cksack-sick-neck-pack-duck"&gt;(ck)sack sick neck pack duck
+&lt;/h3&gt;&lt;h3 id="checho-technology-archive-chemist-chaos--ache-scheme"&gt;(ch)echo technology archive chemist chaos ache scheme
+&lt;/h3&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;When an ‘h’ is between a ‘c’ and a soft vowel (e,i,y) then the ‘ch’ combination is
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pronounced as /k/.
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h3 id="que-cheque-unique-torque-antique-opaque--plaque--boutique"&gt;(que) cheque unique torque antique opaque plaque boutique
+&lt;/h3&gt;&lt;h2 id="gap"&gt;&amp;lt;gap
+&lt;/h2&gt;&lt;h3 id="ggap"&gt;(g)gap
+&lt;/h3&gt;&lt;h3 id="ggjuggle-egg"&gt;(gg)juggle egg
+&lt;/h3&gt;&lt;h3 id="guguide-guitar-guard"&gt;(gu)guide guitar guard
+&lt;/h3&gt;&lt;h3 id="ghghost"&gt;(gh)ghost
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="002map"&gt;002&amp;lt;map
+&lt;/h2&gt;&lt;h3 id="mmap"&gt;(m)map
+&lt;/h3&gt;&lt;h3 id="mmhammer-mummy"&gt;(mm)hammer mummy
+&lt;/h3&gt;&lt;h3 id="mewelcome-blame-time"&gt;(me)welcome blame time
+&lt;/h3&gt;&lt;h3 id="mbclimb-comb-thumb-mncolumn-hymn"&gt;(mb)climb comb thumb (mn)column hymn
+&lt;/h3&gt;&lt;h2 id="nap"&gt;&amp;lt;nap
+&lt;/h2&gt;&lt;h3 id="nnet"&gt;(n)net
+&lt;/h3&gt;&lt;h3 id="nnsunny-cannon-bonnet"&gt;(nn)sunny cannon bonnet
+&lt;/h3&gt;&lt;h3 id="gngnat-gnome-align-resign"&gt;(gn)gnat gnome align resign
+&lt;/h3&gt;&lt;h3 id="knknee-knit-know-knife"&gt;(kn)knee knit know knife
+&lt;/h3&gt;&lt;h3 id="neengine"&gt;(ne)engine
+&lt;/h3&gt;&lt;h2 id="sing-ng-舌后根往上顶舌尖在下齿背"&gt;&amp;lt;sing-[ng] &lt;strong&gt;舌后根往上顶，舌尖在下齿背&lt;/strong&gt;
+&lt;/h2&gt;&lt;h3 id="ngsing-king-ring"&gt;(ng)sing king ring
+&lt;/h3&gt;&lt;h3 id="nkpink--bank--ink-plank-sink"&gt;(nk)pink bank ink plank sink
+&lt;/h3&gt;&lt;h3 id="nguetongue"&gt;(ngue)tongue
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="003fan"&gt;003&amp;lt;fan
+&lt;/h2&gt;&lt;h3 id="ffan--frog"&gt;(f)fan frog
+&lt;/h3&gt;&lt;h3 id="ffcliff-cuff-off"&gt;(ff)cliff cuff off
+&lt;/h3&gt;&lt;h3 id="phphoto-phone"&gt;(ph)photo phone
+&lt;/h3&gt;&lt;h3 id="ghenough-tough-rough-laugh--cough"&gt;(gh)enough tough rough laugh cough
+&lt;/h3&gt;&lt;h2 id="van"&gt;&amp;lt;van
+&lt;/h2&gt;&lt;h3 id="vvan-vanilla"&gt;(v)van vanilla
+&lt;/h3&gt;&lt;h3 id="vehave-love-clove"&gt;(ve)have love clove
+&lt;/h3&gt;&lt;h2 id="three-voiceless"&gt;&amp;lt;three-voiceless
+&lt;/h2&gt;&lt;h3 id="ththick-three-thin---mouth-bath-thumb"&gt;(th)thick three thin mouth bath thumb
+&lt;/h3&gt;&lt;h2 id="this-voiced"&gt;&amp;lt;this-voiced
+&lt;/h2&gt;&lt;h3 id="th--this-other-feather"&gt;(th) this other feather
+&lt;/h3&gt;&lt;h2 id="sun"&gt;&amp;lt;sun
+&lt;/h2&gt;&lt;h3 id="ssun"&gt;(s)sun
+&lt;/h3&gt;&lt;h3 id="ceiycent-face-city-cycle"&gt;(c+e/i/y)cent face city cycle
+&lt;/h3&gt;&lt;h3 id="ssdress-glass"&gt;(ss)dress glass
+&lt;/h3&gt;&lt;h3 id="secase-vase-horse"&gt;(se)case vase horse
+&lt;/h3&gt;&lt;h3 id="stcastle-whistle-hustle"&gt;(st)castle whistle hustle
+&lt;/h3&gt;&lt;h3 id="scscissor-scent-science"&gt;(sc)scissor scent science
+&lt;/h3&gt;&lt;h3 id="pspseudonym"&gt;(ps)pseudonym
+&lt;/h3&gt;&lt;h2 id="zoo"&gt;&amp;lt;zoo
+&lt;/h2&gt;&lt;h3 id="zzoo"&gt;(z)zoo
+&lt;/h3&gt;&lt;h3 id="zzbuzz-jazz"&gt;(zz)buzz jazz
+&lt;/h3&gt;&lt;h3 id="secheese-rose-please"&gt;(se)cheese rose please
+&lt;/h3&gt;&lt;h3 id="sis-was-legs-mosaic"&gt;(s)is was legs mosaic
+&lt;/h3&gt;&lt;h2 id="shark-sh"&gt;&amp;lt;shark-[sh]
+&lt;/h2&gt;&lt;h3 id="shshark-fish-ship-shop"&gt;(sh)shark fish ship shop
+&lt;/h3&gt;&lt;h3 id="chchicago-machine-chef-champagne"&gt;(ch)chicago machine chef champagne
+&lt;/h3&gt;&lt;h3 id="sitension-recession-mansion-session-pension"&gt;(si)tension recession mansion session pension
+&lt;/h3&gt;&lt;h3 id="cisocial-official-judicial-artificial"&gt;(ci)social official judicial artificial
+&lt;/h3&gt;&lt;h3 id="tistation-partial-initial-confidential"&gt;(ti)station partial initial confidential
+&lt;/h3&gt;&lt;h2 id="beige-zh"&gt;&amp;lt;beige-[zh]
+&lt;/h2&gt;&lt;h3 id="gebeige--mirage-massage-garage-camouflage"&gt;(ge)beige mirage massage garage camouflage
+&lt;/h3&gt;&lt;h3 id="sivision--illusion--version-division-occasion"&gt;(si)vision illusion version division occasion
+&lt;/h3&gt;&lt;h3 id="svisual-casual-treasure-leisure"&gt;(s)visual casual treasure leisure
+&lt;/h3&gt;&lt;h3 id="z-azure"&gt;(z) azure
+&lt;/h3&gt;&lt;h2 id="hat"&gt;&amp;lt;hat
+&lt;/h2&gt;&lt;h3 id="hhat"&gt;(h)hat
+&lt;/h3&gt;&lt;h3 id="whwho-whole"&gt;(wh)who whole
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="004march--ch"&gt;004&amp;lt;march [ch]
+&lt;/h2&gt;&lt;h3 id="ch-march-chin-arch"&gt;(ch) march chin arch
+&lt;/h3&gt;&lt;h3 id="tchmatch-catch-patch"&gt;(tch)match catch patch
+&lt;/h3&gt;&lt;h3 id="tusituation-obituary-actual"&gt;(tu)situation obituary actual
+&lt;/h3&gt;&lt;h2 id="jet"&gt;&amp;lt;jet
+&lt;/h2&gt;&lt;h3 id="jjet-junk-jug"&gt;(j)jet junk jug
+&lt;/h3&gt;&lt;h3 id="gecage-large"&gt;(ge)cage large
+&lt;/h3&gt;&lt;h3 id="geiygiraffe-ginger-gem-gym"&gt;(g+e/i/y)giraffe ginger gem gym
+&lt;/h3&gt;&lt;h3 id="gg-exaggerate"&gt;(gg) exaggerate
+&lt;/h3&gt;&lt;h3 id="dgebridge-edge-wedge-hedge-judge-badge-cartridge"&gt;(dge)bridge edge wedge hedge judge badge cartridge
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="005wet"&gt;005&amp;lt;wet
+&lt;/h2&gt;&lt;h3 id="wweb-wet"&gt;(w)web wet
+&lt;/h3&gt;&lt;h3 id="whwheel-when"&gt;(wh)wheel when
+&lt;/h3&gt;&lt;h3 id="upenguin-iguana--suite--persuade"&gt;(u)penguin iguana suite persuade
+&lt;/h3&gt;&lt;h2 id="rat"&gt;&amp;lt;rat
+&lt;/h2&gt;&lt;h3 id="rrat"&gt;(r)rat
+&lt;/h3&gt;&lt;h3 id="rrarrow--carrot"&gt;(rr)arrow carrot
+&lt;/h3&gt;&lt;h3 id="wrwring-write-wrinkle-wrong"&gt;(wr)wring write wrinkle wrong
+&lt;/h3&gt;&lt;h3 id="rhrhino-rhythm"&gt;(rh)rhino rhythm
+&lt;/h3&gt;&lt;h2 id="yak"&gt;&amp;lt;yak
+&lt;/h2&gt;&lt;h3 id="yyet-yak-yes-yard"&gt;(y)yet yak yes yard
+&lt;/h3&gt;&lt;h3 id="iopinion-onion"&gt;(i)opinion onion
+&lt;/h3&gt;&lt;hr&gt;
+&lt;h2 id="006let"&gt;006&amp;lt;let
+&lt;/h2&gt;&lt;h3 id="lleg"&gt;(l)leg
+&lt;/h3&gt;&lt;h3 id="llshell-bell-silly"&gt;(ll)shell bell silly
+&lt;/h3&gt;&lt;h3 id="leeagle"&gt;(le)eagle
+&lt;/h3&gt;&lt;h3 id="elcamel--squirrel-tunnel-travel-towel"&gt;(el)camel squirrel tunnel travel towel
+&lt;/h3&gt;&lt;h1 id="other"&gt;Other
+&lt;/h1&gt;&lt;h2 id="box--ks"&gt;box -/ks/
+&lt;/h2&gt;&lt;h3 id="x-box-fox"&gt;(x) box fox
+&lt;/h3&gt;&lt;h3 id="ksbooks"&gt;(ks)books
+&lt;/h3&gt;&lt;h2 id="quit-kw"&gt;quit-/kw/
+&lt;/h2&gt;&lt;h3 id="ququit--queen"&gt;(qu)quit queen
+&lt;/h3&gt;&lt;h2 id="tree-tr"&gt;tree-/tr/
+&lt;/h2&gt;&lt;h3 id="trtree-trip-trunk"&gt;(tr)tree trip trunk
+&lt;/h3&gt;&lt;h2 id="exam--gz"&gt;exam -/gz/
+&lt;/h2&gt;&lt;h3 id="xexam-auxiliary-executive---exact-exist-example"&gt;(x)exam auxiliary executive exact exist example
+&lt;/h3&gt;&lt;h2 id="castle-sl"&gt;castle-/sl/
+&lt;/h2&gt;&lt;h3 id="stlecastle-wistle-hustle-bustle-muscle"&gt;(stle)castle wistle hustle bustle muscle
+&lt;/h3&gt;&lt;h2 id="juggle-gl"&gt;juggle-/gl/
+&lt;/h2&gt;&lt;h3 id="gledongle-jungle-smuggle-snuggle-toggle-strangle"&gt;(gle)dongle jungle smuggle snuggle toggle strangle
+&lt;/h3&gt;&lt;h2 id="simple-pl"&gt;simple-/pl/
+&lt;/h2&gt;&lt;p&gt;simple apple purple couple sample example maple ripple pimple temple&lt;/p&gt;
+&lt;h2 id="no-w"&gt;&amp;mdash;no w
+&lt;/h2&gt;&lt;p&gt;written
+wreck
+wrestle
+wreath
+wrinkle
+crease
+whole
+who&lt;/p&gt;
+&lt;h2 id="no-b"&gt;&amp;mdash;no b
+&lt;/h2&gt;&lt;p&gt;doubt
+debt
+subtle
+thumb
+dumb
+lamb
+limb
+climb
+numb
+womb
+plumb
+plumber&lt;/p&gt;
+&lt;h2 id="no-g"&gt;&amp;mdash;no g
+&lt;/h2&gt;&lt;p&gt;gnat
+gnome
+sign
+design
+resign&lt;/p&gt;
+&lt;p&gt;reign
+foreign
+sovereign&lt;/p&gt;
+&lt;h2 id="no-k"&gt;&amp;ndash;no k
+&lt;/h2&gt;&lt;p&gt;knit
+knuckle
+knee
+knife
+knight&lt;/p&gt;
+&lt;h2 id="no-n"&gt;&amp;ndash;no n
+&lt;/h2&gt;&lt;p&gt;column
+autumn&lt;/p&gt;
+&lt;h2 id="no-h"&gt;&amp;ndash;no h
+&lt;/h2&gt;&lt;p&gt;honest
+hour
+herb&lt;/p&gt;
+&lt;p&gt;white
+whistle
+whisper
+whisker&lt;/p&gt;
+&lt;p&gt;rhino&lt;/p&gt;
+&lt;h2 id="no-t"&gt;&amp;ndash;no t
+&lt;/h2&gt;&lt;p&gt;listen
+fasten
+soften
+often
+castle
+whistle
+wrestle&lt;/p&gt;
+&lt;h2 id="no-s"&gt;&amp;ndash;no s
+&lt;/h2&gt;&lt;p&gt;island
+aisle&lt;/p&gt;
+&lt;h2 id="ia"&gt;(ia)
+&lt;/h2&gt;&lt;p&gt;aviation deviation abbreviation mediate&lt;/p&gt;
+&lt;h2 id="ia-1"&gt;(ia)
+&lt;/h2&gt;&lt;p&gt;diary dialog diamond compliance liability dialect giant trial&lt;/p&gt;
+&lt;h2 id="ous"&gt;(ous)
+&lt;/h2&gt;&lt;p&gt;famous nervous ambiguous enormous obvious fabulous&lt;/p&gt;
+&lt;h2 id="tion---shuh-n"&gt;(tion) -[shuh]-/n/
+&lt;/h2&gt;&lt;p&gt;station information sanction&lt;/p&gt;
+&lt;h2 id="sion-shuh"&gt;(sion)-[shuh]
+&lt;/h2&gt;&lt;p&gt;mansion session tension recession pension&lt;/p&gt;
+&lt;h2 id="sion-zhuh"&gt;(sion)-[zhuh]
+&lt;/h2&gt;&lt;p&gt;version immersion conversion television vision illusion division occasion&lt;/p&gt;
+&lt;h2 id="sure-zh"&gt;(sure)-[zh]
+&lt;/h2&gt;&lt;p&gt;measure treasure&lt;/p&gt;
+&lt;h2 id="ful-"&gt;(ful)-//
+&lt;/h2&gt;&lt;p&gt;awful beautiful colorful&lt;/p&gt;
+&lt;h2 id="ture--chuh"&gt;(ture) -[chuh]
+&lt;/h2&gt;&lt;p&gt;picture venture furniture torture pasture puncture&lt;/p&gt;
+&lt;h2 id="ough"&gt;ough
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;span class="lnt"&gt;7
+&lt;/span&gt;&lt;span class="lnt"&gt;8
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;lt;oak&amp;gt;/əʊ/ though,although,dough
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/ʌf/ tough,enough,rough
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/ɒf/ cough,trough
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/ʌp/ hiccough=hiccup
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&amp;lt;out&amp;gt;/aʊ/ plough,bough,drought
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/uː/ through
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/ɔː/ thought,ought,bought
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;/ˈθʌrə/ thorough
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Though the tough cough and hiccough plough me through.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Over drought bough thought enough. I&amp;#39;ve got
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="nounverb"&gt;noun/verb
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;attribute
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tear
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;live
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;record
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;desert
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wind
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lead
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;minute
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bow
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sow
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="ame-bre"&gt;AME-BRE
+&lt;/h1&gt;&lt;h2 id="ile"&gt;(ile)
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fragile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;versatile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;missile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tactile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;agile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fertile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;juvenile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hostile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mobile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;volatile
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;reptile
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="as"&gt;(as)
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fast
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;class
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pass
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;last
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grass
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="diff"&gt;diff
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bath
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;path
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cast
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;castle
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Raft
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dance
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;--------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;new
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;reduce
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;-------------
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vase
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;laboratory
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;inventory
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;adult
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;module
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;massage
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;leisure
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;rock
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;with
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tomato
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;consumer
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;currency
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="error"&gt;Error
+&lt;/h1&gt;&lt;h2 id="long-vowel-i--vs-short-vowel-e"&gt;【long vowel i】 VS 【short vowel e】
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;price press
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;smile smell
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fight felt
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;side said
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wide wed
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mine men
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;fine fen
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dine den
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mice mess
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tile tell
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="long-vowel-a-vs--short-vowel-i"&gt;【long vowel a】 VS 【short vowel i】
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mail mill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wait wit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lake lick
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pain pin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hate hit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;take tick
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;late lit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bait bit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grape grip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tape tip
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="long-vowel-e-vs--short-vowel-i"&gt;【long vowel e】 VS 【short vowel i】
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;seat sit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bead bid
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;peak pick
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;deep dip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;heel hill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;eat it
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;feet fit
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;peach pitch
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cheap chip
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;feel fill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sheep ship
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;peel pill
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;wheel will
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;seen sin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bean bin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dean din
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;keen kin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;teen tin
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;read rid
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;leave live
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;meet mitt
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="sinsing"&gt;sin/sing
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;span class="lnt"&gt;6
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;sin sing
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;run rung
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;thin thing
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ton tongue
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ban bang
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;win wing
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="l-at-the-end"&gt;L (at the end)
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;soil boil
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>Ffmpeg</title><link>https://boryswu.github.io/p/ffmpeg/</link><pubDate>Mon, 26 Oct 2026 19:37:55 +0800</pubDate><guid>https://boryswu.github.io/p/ffmpeg/</guid><description>&lt;h1 id="1只修改音频音量不重新编码视频"&gt;1只修改音频音量，不重新编码视频
 &lt;/h1&gt;&lt;p&gt;&lt;code&gt;ffmpeg -i input.mp4 -filter:a &amp;quot;volume=2.0&amp;quot; -c:v copy output.mp4&lt;/code&gt;&lt;/p&gt;
 &lt;h1 id="2微信upload出现0s视频提示"&gt;2微信upload出现0S视频提示
 &lt;/h1&gt;&lt;h3 id="ffprobe检查"&gt;ffprobe检查
@@ -107,7 +1273,73 @@
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ffmpeg -i in.mp4 -vf &amp;#34;drawtext=fontfile=&amp;#39;C\:/Windows/Fonts/msyhbd.ttc&amp;#39;:text=&amp;#39;dydtek.com&amp;#39;:x=mod(60*t\,w):y=abs(sin(t/3))*h*0.7:fontsize=48:fontcolor=red:alpha=0.4:borderw=2:bordercolor=black:shadowx=2:shadowy=2:shadowcolor=black@0.4&amp;#34; output.mp4
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;</description></item><item><title>Autohugo</title><link>https://boryswu.github.io/p/autohugo/</link><pubDate>Mon, 26 Oct 2026 18:26:18 +0800</pubDate><guid>https://boryswu.github.io/p/autohugo/</guid><description>&lt;h1 id="github配置ssh并验证"&gt;Github配置ssh并验证
+&lt;/div&gt;</description></item><item><title>Dnsrec</title><link>https://boryswu.github.io/p/dnsrec/</link><pubDate>Mon, 26 Oct 2026 19:14:31 +0800</pubDate><guid>https://boryswu.github.io/p/dnsrec/</guid><description>&lt;p&gt;递归DNS服务器查询过程&lt;/p&gt;
+&lt;p&gt;递归DNS服务器（也叫本地DNS解析器）的核心是替客户端完成全部DNS查询工作：客户端只需发送1次请求，就能直接拿到最终的IP地址，
+无需自己逐级查询。以下是完整流程（以访问 boryswu.github.io为例）：&lt;/p&gt;
+&lt;h1 id="完整查询步骤从客户端到拿到ip"&gt;完整查询步骤（从客户端到拿到IP）
+&lt;/h1&gt;&lt;h2 id="1客户端发起请求"&gt;1. 客户端发起请求
+&lt;/h2&gt;&lt;p&gt;用户在浏览器输入 boryswu.github.io，操作系统先检查本地 hosts 文件和系统DNS缓存。如果没有对应记录，就向系统配置的递归DNS服务器（如运营商DNS、114.114.114.114、8.8.8.8）发送DNS查询请求。&lt;/p&gt;
+&lt;h2 id="2递归dns查自身缓存"&gt;2. 递归DNS查自身缓存
+&lt;/h2&gt;&lt;p&gt;递归DNS先检查自己的缓存：&lt;/p&gt;
+&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;如果有 boryswu.github.io的A/AAAA记录且未过期（TTL有效），直接将IP返回给客户端，查询结束。&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;如果缓存无记录或已过期，开始逐级迭代查询（递归DNS对上层服务器用迭代查询）。&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;
+&lt;h2 id="3查询根域名服务器"&gt;3. 查询根域名服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向全球13组根域名服务器（A-M）发送请求：“请问 boryswu.github.io的IP是什么？”
+根服务器不存储具体域名记录，但知道所有顶级域（TLD） 服务器的地址，因此返回 .com 顶级域服务器的IP列表。&lt;/p&gt;
+&lt;h2 id="4查询顶级域tld服务器"&gt;4. 查询顶级域（TLD）服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向 .com 顶级域服务器发送同样的请求。
+ .com 服务器也不存储具体二级域名记录，但知道 example.com 的权威DNS服务器地址，因此返回该权威DNS的IP。&lt;/p&gt;
+&lt;h2 id="5查询权威dns服务器"&gt;5. 查询权威DNS服务器
+&lt;/h2&gt;&lt;p&gt;递归DNS向 example.com 的权威DNS服务器发送请求。
+权威DNS是域名所有者配置的、存储该域名所有DNS记录（A、CNAME、MX等）的服务器，它会直接返回 boryswu.github.io对应的IP地址。&lt;/p&gt;
+&lt;h2 id="6返回结果并缓存"&gt;6. 返回结果并缓存
+&lt;/h2&gt;&lt;p&gt;递归DNS将拿到的IP地址返回给客户端，同时将该记录存入自己的缓存（缓存时长由权威DNS设置的TTL值决定），供后续相同查询使用。&lt;/p&gt;
+&lt;h1 id="13台根服务器"&gt;13台根服务器
+&lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;a.root-servers.net 198.41.0.4, 2001:503:ba3e::2:30 Verisign, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;b.root-servers.net 170.247.170.2, 2801:1b8:10::b University of Southern California,
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Information Sciences Institute
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;c.root-servers.net 192.33.4.12, 2001:500:2::c Cogent Communications
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;d.root-servers.net 199.7.91.13, 2001:500:2d::d University of Maryland
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;e.root-servers.net 192.203.230.10, 2001:500:a8::e NASA (Ames Research Center)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;f.root-servers.net 192.5.5.241, 2001:500:2f::f Internet Systems Consortium, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;g.root-servers.net 192.112.36.4, 2001:500:12::d0d US Department of Defense (NIC)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;h.root-servers.net 198.97.190.53, 2001:500:1::53 US Army (Research Lab)
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;i.root-servers.net 192.36.148.17, 2001:7fe::53 Netnod
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;j.root-servers.net 192.58.128.30, 2001:503:c27::2:30 Verisign, Inc.
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;k.root-servers.net 193.0.14.129, 2001:7fd::1 RIPE NCC
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;l.root-servers.net 199.7.83.42, 2001:500:9f::42 ICANN
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;m.root-servers.net 202.12.27.33, 2001:dc3::35 WIDE Project
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="ns记录"&gt;NS记录
+&lt;/h1&gt;&lt;p&gt;NS 代表“域名服务器”，域名服务器记录指示哪个 DNS 服务器对该域具有权威性（即，哪个服务器包含实际 DNS 记录）。
+基本上，NS 记录告诉互联网可从哪里找到域的 IP 地址。
+一个域通常会有多个 NS 记录，这些记录可指示该域的主要和辅助域名服务器。倘若没有正确配置的 NS 记录，
+用户将无法加载网站或应用程序&lt;/p&gt;</description></item><item><title>Autohugo</title><link>https://boryswu.github.io/p/autohugo/</link><pubDate>Mon, 26 Oct 2026 18:26:18 +0800</pubDate><guid>https://boryswu.github.io/p/autohugo/</guid><description>&lt;h1 id="github配置ssh并验证"&gt;Github配置ssh并验证
 &lt;/h1&gt;&lt;h2 id="利用ssh登录vps的流程"&gt;利用SSH登录vps的流程
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
@@ -323,7 +1555,7 @@ data-flex-basis="426px"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id="wl1021"&gt;wl1021
+&lt;h2 id="wl1021"&gt;WL1021
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -596,7 +1828,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cult
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl1026"&gt;wl1026
+&lt;/div&gt;&lt;h2 id="wl1026"&gt;WL1026
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1150,8 +2382,8 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tissue
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h1 id="error"&gt;Error
-&lt;/h1&gt;&lt;h2 id="wl1001"&gt;WL1001
+&lt;/div&gt;&lt;h1 id="error-0900"&gt;Error-0900
+&lt;/h1&gt;&lt;h2 id="wl0900"&gt;WL0900
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1250,7 +2482,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mayor
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl1002"&gt;WL1002
+&lt;/div&gt;&lt;h2 id="wl0901"&gt;WL0901
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -1275,7 +2507,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;penalize
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl003"&gt;WL003
+&lt;/div&gt;&lt;h2 id="wl0902"&gt;WL0902
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1352,7 +2584,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;borough
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl1004"&gt;WL1004
+&lt;/div&gt;&lt;h2 id="wl0903"&gt;WL0903
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1419,7 +2651,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;millennium
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl1005"&gt;WL1005
+&lt;/div&gt;&lt;h2 id="wl0904"&gt;WL0904
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1467,8 +2699,6 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;span class="lnt"&gt;43
 &lt;/span&gt;&lt;span class="lnt"&gt;44
 &lt;/span&gt;&lt;span class="lnt"&gt;45
-&lt;/span&gt;&lt;span class="lnt"&gt;46
-&lt;/span&gt;&lt;span class="lnt"&gt;47
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I&amp;#39;ll
@@ -1478,8 +2708,6 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;it&amp;#39;ll
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;we&amp;#39;ll
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;they&amp;#39;ll
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;I&amp;#39;m
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;you&amp;#39;re
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;he&amp;#39;s
@@ -1520,17 +2748,69 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;mustn&amp;#39;t
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h1 id="sightword"&gt;SightWord
-&lt;/h1&gt;&lt;h2 id="sw001-punctuation"&gt;sw001-punctuation
+&lt;/div&gt;&lt;h1 id="sightword-0800"&gt;SightWord-0800
+&lt;/h1&gt;&lt;h2 id="wl0800"&gt;WL0800
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
+&lt;/span&gt;&lt;span class="lnt"&gt;27
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tilde Grave Accent exclamation mark at hash dollar percent caret Ampersand Asterisk parenthesis underscore dash hyphen plus equal braces brackets colon semicolon quotation marks apostrophe pipe backslash comma period question mark Slash
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;tilde
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;grave
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;exclamation
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;at
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hash
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dollar
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;percent
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;caret
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;ampersand
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;asterisk
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;parenthesis
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;underscore
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hyphen
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;plus
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;equal
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;brace
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bracket
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;colon
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;semicolon
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;quotation
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;apostrophe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pipe
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;backslash
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;comma
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;period
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;question
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;slash
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw002--age"&gt;sw002 age
+&lt;/div&gt;&lt;h2 id="wl0801"&gt;WL0801
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1567,7 +2847,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Elderly
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw003-computer"&gt;sw003-Computer
+&lt;/div&gt;&lt;h2 id="wl0802"&gt;WL0802
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1598,9 +2878,11 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;span class="lnt"&gt;26
 &lt;/span&gt;&lt;span class="lnt"&gt;27
 &lt;/span&gt;&lt;span class="lnt"&gt;28
+&lt;/span&gt;&lt;span class="lnt"&gt;29
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vulnerable
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Computer
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;vulnerable
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;code
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;browser
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;protocol
@@ -1630,7 +2912,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;repository
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw004-cosmic"&gt;sw004-cosmic
+&lt;/div&gt;&lt;h2 id="wl0803"&gt;WL0803
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1697,7 +2979,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;&lt;span class="n"&gt;atlantic&lt;/span&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw005-nutrition"&gt;sw005-nutrition
+&lt;/div&gt;&lt;h2 id="wl0804"&gt;WL0804
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1736,7 +3018,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;allergy
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw006-cloth"&gt;sw006-Cloth
+&lt;/div&gt;&lt;h2 id="wl0805"&gt;WL0805
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1783,9 +3065,11 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;span class="lnt"&gt;42
 &lt;/span&gt;&lt;span class="lnt"&gt;43
 &lt;/span&gt;&lt;span class="lnt"&gt;44
+&lt;/span&gt;&lt;span class="lnt"&gt;45
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jumper
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Cloth
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jumper
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;hoodie
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jacket
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;coat
@@ -1831,7 +3115,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;latex
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw007-bodymove"&gt;sw007-bodymove
+&lt;/div&gt;&lt;h2 id="wl0806"&gt;WL0806
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1870,7 +3154,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;puke
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw008-religous"&gt;sw008-religous
+&lt;/div&gt;&lt;h2 id="wl0807"&gt;WL0807
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1905,9 +3189,11 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;span class="lnt"&gt;30
 &lt;/span&gt;&lt;span class="lnt"&gt;31
 &lt;/span&gt;&lt;span class="lnt"&gt;32
+&lt;/span&gt;&lt;span class="lnt"&gt;33
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
-&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jesus
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;religious
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;jesus
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;god
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bliss
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lord
@@ -1941,7 +3227,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;lantern
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw009-meal"&gt;sw009-meal
+&lt;/div&gt;&lt;h2 id="wl0808"&gt;WL0808
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1988,7 +3274,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;condiment ketchup pepper salt vinegar sauce mayonnaise
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw010-war"&gt;sw010-war
+&lt;/div&gt;&lt;h2 id="wl0809"&gt;WL0809
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2081,7 +3367,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;trajectory
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw011-ghost"&gt;sw011-Ghost
+&lt;/div&gt;&lt;h2 id="wl0810"&gt;WL0810
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2168,7 +3454,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;forensic
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw012-farmer"&gt;sw012-farmer
+&lt;/div&gt;&lt;h2 id="wl0811"&gt;WL0811
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2289,7 +3575,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;agriculture compost
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw013-tools"&gt;sw013-Tools
+&lt;/div&gt;&lt;h2 id="wl0812"&gt;WL0812
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2334,7 +3620,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;gauge
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw014-disaster"&gt;sw014-disaster
+&lt;/div&gt;&lt;h2 id="wl0813"&gt;WL0813
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2385,7 +3671,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw015-weather"&gt;sw015-weather
+&lt;/div&gt;&lt;h2 id="wl0814"&gt;WL0814
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2440,7 +3726,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw016-water"&gt;sw016-water
+&lt;/div&gt;&lt;h2 id="wl0815"&gt;WL0815
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2521,7 +3807,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw017-land"&gt;sw017-Land
+&lt;/div&gt;&lt;h2 id="wl0816"&gt;WL0816
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2572,7 +3858,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw018-birds"&gt;sw018-Birds
+&lt;/div&gt;&lt;h2 id="wl0817"&gt;WL0817
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2639,7 +3925,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;dove
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw019-mammals"&gt;sw019-Mammals
+&lt;/div&gt;&lt;h2 id="wl0818"&gt;WL0818
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2736,7 +4022,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw020-marine-creature"&gt;sw020-Marine Creature
+&lt;/div&gt;&lt;h2 id="wl0819"&gt;WL0819
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2813,7 +4099,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;turtle
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw021-insect"&gt;sw021-Insect
+&lt;/div&gt;&lt;h2 id="wl0820"&gt;WL0820
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2854,7 +4140,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;silkworm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw022-material"&gt;sw022-Material
+&lt;/div&gt;&lt;h2 id="wl0821"&gt;WL0821
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2905,7 +4191,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;steel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw023time"&gt;sw023&amp;ndash;Time
+&lt;/div&gt;&lt;h2 id="wl0822"&gt;WL0822
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2936,7 +4222,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;Late Night
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw024-group"&gt;sw024-group
+&lt;/div&gt;&lt;h2 id="wl0823"&gt;WL0823
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3057,7 +4343,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;font italic bold underline strikethrough enclose margin transparent opaque gradient texture pattern
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw025-baby"&gt;sw025-baby
+&lt;/div&gt;&lt;h2 id="wl0824"&gt;WL0824
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3084,7 +4370,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;diaper
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw026-hospital"&gt;SW026-hospital
+&lt;/div&gt;&lt;h2 id="wl0825"&gt;WL0825
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3235,7 +4521,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;addictive
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw026-bodypart"&gt;SW026-BodyPart
+&lt;/div&gt;&lt;h2 id="wl0826"&gt;WL0826
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3278,7 +4564,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;arm
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw027-diet"&gt;SW027-Diet
+&lt;/div&gt;&lt;h2 id="wl0827"&gt;WL0827
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3337,7 +4623,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;cocktail
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw028-food"&gt;SW028-Food
+&lt;/div&gt;&lt;h2 id="wl0828"&gt;WL0828
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -3360,7 +4646,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;peel
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw029-tree"&gt;SW029-tree
+&lt;/div&gt;&lt;h2 id="wl0829"&gt;WL0829
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3409,7 +4695,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bush
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw030-home"&gt;SW030-home
+&lt;/div&gt;&lt;h2 id="wl0830"&gt;WL0830
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3610,7 +4896,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;firewood
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw031-shape"&gt;SW031-shape
+&lt;/div&gt;&lt;h2 id="wl0831"&gt;WL0831
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3657,7 +4943,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;pyramid
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw032-love"&gt;SW032-Love
+&lt;/div&gt;&lt;h2 id="wl0832"&gt;WL0832
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3700,7 +4986,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;bridesmaid
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw033-business"&gt;SW033-business
+&lt;/div&gt;&lt;h2 id="wl0833"&gt;WL0833
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -3807,7 +5093,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;commerce trade product commodity goods fleet freight cargo enterprise entrepreneur business
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw034-maths"&gt;SW034-Maths
+&lt;/div&gt;&lt;h2 id="wl0834"&gt;WL0834
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
@@ -3816,7 +5102,7 @@ data-flex-basis="426px"
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;diameter perimeter circumference angle arc arrow vector geometry calculus abacus
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="sw035-transport"&gt;SW035-transport
+&lt;/div&gt;&lt;h2 id="wl0835"&gt;WL0835
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
