@@ -1528,7 +1528,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id="查看action"&gt;查看Action
-&lt;/h2&gt;&lt;p&gt;提交完成之后前往 “Actions” 页面查看部署情况&lt;/p&gt;</description></item><item><title>Wordlist</title><link>https://boryswu.github.io/p/wordlist/</link><pubDate>Mon, 26 Oct 2026 14:44:18 +0800</pubDate><guid>https://boryswu.github.io/p/wordlist/</guid><description>&lt;h1 id="wordlist"&gt;WordList
+&lt;/h2&gt;&lt;p&gt;提交完成之后前往 “Actions” 页面查看部署情况&lt;/p&gt;</description></item><item><title>Wordlist</title><link>https://boryswu.github.io/p/wordlist/</link><pubDate>Mon, 26 Oct 2026 14:44:18 +0800</pubDate><guid>https://boryswu.github.io/p/wordlist/</guid><description>&lt;h1 id=""&gt;
 &lt;/h1&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1538,24 +1538,25 @@ data-flex-basis="426px"
 &lt;/thead&gt;
 &lt;tbody&gt;
 &lt;tr&gt;
-&lt;td&gt;err&lt;/td&gt;
+&lt;td&gt;err09&lt;/td&gt;
 &lt;td&gt;is a word pronounced incorrectly&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;wl&lt;/td&gt;
+&lt;td&gt;wl10&lt;/td&gt;
 &lt;td&gt;is wordlist&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;sw&lt;/td&gt;
+&lt;td&gt;sw08&lt;/td&gt;
 &lt;td&gt;is a sight word group with pictures&lt;/td&gt;
 &lt;/tr&gt;
 &lt;tr&gt;
-&lt;td&gt;abc&lt;/td&gt;
+&lt;td&gt;abc06&lt;/td&gt;
 &lt;td&gt;is an unfamiliar word with sentences&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h2 id="wl1020"&gt;WL1020
+&lt;h1 id="abc"&gt;ABC
+&lt;/h1&gt;&lt;h2 id="wl0601"&gt;WL0601
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -1592,7 +1593,8 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;The doctor gave him a thorough check-up
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl1021"&gt;WL1021
+&lt;/div&gt;&lt;h1 id="wordlist"&gt;WordList
+&lt;/h1&gt;&lt;h2 id="wl1021"&gt;WL1021
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -5981,8 +5983,8 @@ data-flex-basis="426px"
 &lt;/div&gt;
 &lt;div class="word-audio-list" style="margin-top:2rem;"&gt;
 &lt;div style="margin:4px 0;font-size:0.9rem;"&gt;
-&lt;strong&gt;wl1020&lt;/strong&gt;：
-&lt;a href="https://boryswu.github.io/audio/wl1020.mp3" target="_blank"&gt;https://boryswu.github.io/audio/wl1020.mp3&lt;/a&gt;
+&lt;strong&gt;wl0601&lt;/strong&gt;：
+&lt;a href="https://boryswu.github.io/audio/wl0601.mp3" target="_blank"&gt;https://boryswu.github.io/audio/wl0601.mp3&lt;/a&gt;
 &lt;/div&gt;
 &lt;div style="margin:4px 0;font-size:0.9rem;"&gt;
 &lt;strong&gt;wl1021&lt;/strong&gt;：
