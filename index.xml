@@ -1,4 +1,112 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Wed, 28 Oct 2026 15:58:04 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Winunix</title><link>https://boryswu.github.io/p/winunix/</link><pubDate>Wed, 28 Oct 2026 15:58:04 +0800</pubDate><guid>https://boryswu.github.io/p/winunix/</guid><description>&lt;h1 id="linux和windows之间远程复制"&gt;Linux和windows之间远程复制
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Sat, 31 Oct 2026 18:35:13 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Myscript</title><link>https://boryswu.github.io/p/myscript/</link><pubDate>Sat, 31 Oct 2026 18:35:13 +0800</pubDate><guid>https://boryswu.github.io/p/myscript/</guid><description>&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;Name&lt;/th&gt;
+&lt;th&gt;Desc&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;mymain&lt;/td&gt;
+&lt;td&gt;main menu&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;scan.py&lt;/td&gt;
+&lt;td&gt;扫描文件夹下所有文件全名输出到txt&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;sshkey.py&lt;/td&gt;
+&lt;td&gt;有passphrase的ssh cache到内存，开机后一次输入&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;voascraper.py&lt;/td&gt;
+&lt;td&gt;抓取voa的words_stories的mp3&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;keypress.py&lt;/td&gt;
+&lt;td&gt;自动备份key关键文件，带7z压缩密码&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;oneopen.py&lt;/td&gt;
+&lt;td&gt;open app once&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;td&gt;&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;p&gt;​
+​ &lt;br&gt;
+​
+​
+​
+​&lt;/p&gt;
+&lt;h1 id="changelog"&gt;ChangeLog
+&lt;/h1&gt;&lt;h2 id="sshkey-v11py-20261031"&gt;sshkey-v1.1.py-20261031
+&lt;/h2&gt;&lt;ul&gt;
+&lt;li&gt;
+&lt;p&gt;Issue:每次输入git都要passphrase&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;cmd运行
+where.exe ssh
+&lt;code&gt;C:\Windows\System32\OpenSSH\ssh.exe&lt;/code&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;li&gt;
+&lt;p&gt;修复：让 git 统一用系统的 ssh（一劳永逸，对所有仓库生效）：
+git config &amp;ndash;global core.sshCommand &amp;ldquo;C:/Windows/System32/OpenSSH/ssh.exe&amp;rdquo;
+ssh -T &lt;a class="link" href="mailto:git@github.com" &gt;git@github.com&lt;/a&gt;&lt;/p&gt;
+&lt;/li&gt;
+&lt;/ul&gt;</description></item><item><title>Winunix</title><link>https://boryswu.github.io/p/winunix/</link><pubDate>Wed, 28 Oct 2026 15:58:04 +0800</pubDate><guid>https://boryswu.github.io/p/winunix/</guid><description>&lt;h1 id="linux和windows之间远程复制"&gt;Linux和windows之间远程复制
 &lt;/h1&gt;&lt;p&gt;scp是secure copy的简写，用于在Linux下进行远程拷贝文件的命令
 Windows与linux间的文件复制方法&lt;/p&gt;
 &lt;h2 id="1在windows下文件上传到linux上"&gt;1在windows下文件上传到Linux上
@@ -278,7 +386,54 @@ Windows与linux间的文件复制方法&lt;/p&gt;
 &lt;td&gt;&lt;/td&gt;
 &lt;/tr&gt;
 &lt;/tbody&gt;
-&lt;/table&gt;</description></item><item><title>Git</title><link>https://boryswu.github.io/p/git/</link><pubDate>Tue, 27 Oct 2026 17:39:32 +0800</pubDate><guid>https://boryswu.github.io/p/git/</guid><description>&lt;h1 id="ssh-pull"&gt;ssh-pull
+&lt;/table&gt;</description></item><item><title>Git</title><link>https://boryswu.github.io/p/git/</link><pubDate>Tue, 27 Oct 2026 17:39:32 +0800</pubDate><guid>https://boryswu.github.io/p/git/</guid><description>&lt;h1 id="bash-readline"&gt;Bash-readline
+&lt;/h1&gt;&lt;table&gt;
+&lt;thead&gt;
+&lt;tr&gt;
+&lt;th&gt;快捷键&lt;/th&gt;
+&lt;th&gt;作用&lt;/th&gt;
+&lt;/tr&gt;
+&lt;/thead&gt;
+&lt;tbody&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + A&lt;/td&gt;
+&lt;td&gt;跳到行首&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + E&lt;/td&gt;
+&lt;td&gt;跳到行尾&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + B&lt;/td&gt;
+&lt;td&gt;光标左移一个字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + F&lt;/td&gt;
+&lt;td&gt;光标右移一个字符&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alt + B&lt;/td&gt;
+&lt;td&gt;左跳一个单词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Alt + F&lt;/td&gt;
+&lt;td&gt;右跳一个单词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + U&lt;/td&gt;
+&lt;td&gt;删掉光标前面全部内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + K&lt;/td&gt;
+&lt;td&gt;删掉光标后面全部内容&lt;/td&gt;
+&lt;/tr&gt;
+&lt;tr&gt;
+&lt;td&gt;Ctrl + W&lt;/td&gt;
+&lt;td&gt;向左删掉一个单词&lt;/td&gt;
+&lt;/tr&gt;
+&lt;/tbody&gt;
+&lt;/table&gt;
+&lt;h1 id="ssh-pull"&gt;ssh-pull
 &lt;/h1&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
