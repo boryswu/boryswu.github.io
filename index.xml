@@ -1528,7 +1528,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
 &lt;/div&gt;&lt;h2 id="查看action"&gt;查看Action
-&lt;/h2&gt;&lt;p&gt;提交完成之后前往 “Actions” 页面查看部署情况&lt;/p&gt;</description></item><item><title>Wordlist</title><link>https://boryswu.github.io/p/wordlist/</link><pubDate>Mon, 26 Oct 2026 14:44:18 +0800</pubDate><guid>https://boryswu.github.io/p/wordlist/</guid><description>&lt;h1 id=""&gt;
+&lt;/h2&gt;&lt;p&gt;提交完成之后前往 “Actions” 页面查看部署情况&lt;/p&gt;</description></item><item><title>Wordlist</title><link>https://boryswu.github.io/p/wordlist/</link><pubDate>Mon, 26 Oct 2026 14:44:18 +0800</pubDate><guid>https://boryswu.github.io/p/wordlist/</guid><description>&lt;h1 id="note"&gt;Note
 &lt;/h1&gt;&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
@@ -1555,7 +1555,30 @@ data-flex-basis="426px"
 &lt;/tr&gt;
 &lt;/tbody&gt;
 &lt;/table&gt;
-&lt;h1 id="abc"&gt;ABC
+&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;1:sounds group first,then meaning group
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="changelog"&gt;Changelog
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;2026-10-31
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;1 \n
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;2 mp3 place in build repository
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;3 mp3 url at build page end
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h1 id="abc"&gt;ABC
 &lt;/h1&gt;&lt;h2 id="wl0601"&gt;WL0601
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
