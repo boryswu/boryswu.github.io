@@ -1,22 +1,51 @@
 <?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BorysWu</title><link>https://boryswu.github.io/post/</link><description>Recent content in Posts on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 16 Nov 2026 16:56:16 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Toolbox</title><link>https://boryswu.github.io/p/toolbox/</link><pubDate>Mon, 16 Nov 2026 16:56:16 +0800</pubDate><guid>https://boryswu.github.io/p/toolbox/</guid><description>&lt;h2 id=""&gt;
-&lt;/h2&gt;&lt;p&gt;graph LR
-root[Borys]
-root &amp;ndash;&amp;gt; A[000&lt;br/&gt;BYSREP]
-A &amp;ndash;&amp;gt; B[010&lt;br/&gt;Oasis：经常变的]
-B &amp;ndash;&amp;gt; B1[112&lt;br/&gt;备注：112说明]
-B &amp;ndash;&amp;gt; B2[112&lt;br/&gt;备注：112说明]
-B &amp;ndash;&amp;gt; B3[113&lt;br/&gt;备注：113说明]
-B &amp;ndash;&amp;gt; B4[114&lt;br/&gt;备注：114说明]
-A &amp;ndash;&amp;gt; C[020&lt;br/&gt;Tundra：PGPkeyFile]&lt;/p&gt;
-&lt;pre&gt;&lt;code&gt;root --&amp;gt; E[100&amp;lt;br/&amp;gt;Cinder：办公Temp]
-root --&amp;gt; F[200&amp;lt;br/&amp;gt;Colonel：Skill]
-F --&amp;gt; Z1[210&amp;lt;br/&amp;gt;English]
-F --&amp;gt; Z2[210&amp;lt;br/&amp;gt;Markdown]
-root --&amp;gt; G[400&amp;lt;br/&amp;gt;DYD]
-root --&amp;gt; H[500&amp;lt;br/&amp;gt;BPT]
-root --&amp;gt; I[700&amp;lt;br/&amp;gt;Pale:backup]
-&lt;/code&gt;&lt;/pre&gt;
-&lt;h2 id="rss"&gt;RSS
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
+&lt;/span&gt;&lt;span class="lnt"&gt; 2
+&lt;/span&gt;&lt;span class="lnt"&gt; 3
+&lt;/span&gt;&lt;span class="lnt"&gt; 4
+&lt;/span&gt;&lt;span class="lnt"&gt; 5
+&lt;/span&gt;&lt;span class="lnt"&gt; 6
+&lt;/span&gt;&lt;span class="lnt"&gt; 7
+&lt;/span&gt;&lt;span class="lnt"&gt; 8
+&lt;/span&gt;&lt;span class="lnt"&gt; 9
+&lt;/span&gt;&lt;span class="lnt"&gt;10
+&lt;/span&gt;&lt;span class="lnt"&gt;11
+&lt;/span&gt;&lt;span class="lnt"&gt;12
+&lt;/span&gt;&lt;span class="lnt"&gt;13
+&lt;/span&gt;&lt;span class="lnt"&gt;14
+&lt;/span&gt;&lt;span class="lnt"&gt;15
+&lt;/span&gt;&lt;span class="lnt"&gt;16
+&lt;/span&gt;&lt;span class="lnt"&gt;17
+&lt;/span&gt;&lt;span class="lnt"&gt;18
+&lt;/span&gt;&lt;span class="lnt"&gt;19
+&lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;graph LR
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root[Borys]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; A[000&amp;lt;br/&amp;gt;BYSREP]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; A --&amp;gt; B[010&amp;lt;br/&amp;gt;Oasis：经常变的]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B1[112&amp;lt;br/&amp;gt;备注：112说明]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B2[112&amp;lt;br/&amp;gt;备注：112说明]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B3[113&amp;lt;br/&amp;gt;备注：113说明]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B4[114&amp;lt;br/&amp;gt;备注：114说明]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; A --&amp;gt; C[020&amp;lt;br/&amp;gt;Tundra：PGPkeyFile]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; E[100&amp;lt;br/&amp;gt;Cinder：办公Temp]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; F[200&amp;lt;br/&amp;gt;Colonel：Skill]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; F --&amp;gt; Z1[210&amp;lt;br/&amp;gt;English]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; F --&amp;gt; Z2[210&amp;lt;br/&amp;gt;Markdown]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; G[400&amp;lt;br/&amp;gt;DYD]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; H[500&amp;lt;br/&amp;gt;BPT]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; I[700&amp;lt;br/&amp;gt;Pale:backup]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;&lt;h2 id="rss"&gt;RSS
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
