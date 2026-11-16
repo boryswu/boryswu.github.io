@@ -1,4 +1,110 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BorysWu</title><link>https://boryswu.github.io/post/</link><description>Recent content in Posts on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Sat, 31 Oct 2026 18:35:13 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Myscript</title><link>https://boryswu.github.io/p/myscript/</link><pubDate>Sat, 31 Oct 2026 18:35:13 +0800</pubDate><guid>https://boryswu.github.io/p/myscript/</guid><description>&lt;table&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>Posts on BorysWu</title><link>https://boryswu.github.io/post/</link><description>Recent content in Posts on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 16 Nov 2026 16:56:16 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/post/index.xml" rel="self" type="application/rss+xml"/><item><title>Toolbox</title><link>https://boryswu.github.io/p/toolbox/</link><pubDate>Mon, 16 Nov 2026 16:56:16 +0800</pubDate><guid>https://boryswu.github.io/p/toolbox/</guid><description>&lt;h2 id=""&gt;
+&lt;/h2&gt;&lt;p&gt;graph LR
+root[Borys]
+root &amp;ndash;&amp;gt; A[000&lt;br/&gt;BYSREP]
+A &amp;ndash;&amp;gt; B[010&lt;br/&gt;Oasis：经常变的]
+B &amp;ndash;&amp;gt; B1[112&lt;br/&gt;备注：112说明]
+B &amp;ndash;&amp;gt; B2[112&lt;br/&gt;备注：112说明]
+B &amp;ndash;&amp;gt; B3[113&lt;br/&gt;备注：113说明]
+B &amp;ndash;&amp;gt; B4[114&lt;br/&gt;备注：114说明]
+A &amp;ndash;&amp;gt; C[020&lt;br/&gt;Tundra：PGPkeyFile]&lt;/p&gt;
+&lt;pre&gt;&lt;code&gt;root --&amp;gt; E[100&amp;lt;br/&amp;gt;Cinder：办公Temp]
+root --&amp;gt; F[200&amp;lt;br/&amp;gt;Colonel：Skill]
+F --&amp;gt; Z1[210&amp;lt;br/&amp;gt;English]
+F --&amp;gt; Z2[210&amp;lt;br/&amp;gt;Markdown]
+root --&amp;gt; G[400&amp;lt;br/&amp;gt;DYD]
+root --&amp;gt; H[500&amp;lt;br/&amp;gt;BPT]
+root --&amp;gt; I[700&amp;lt;br/&amp;gt;Pale:backup]
+&lt;/code&gt;&lt;/pre&gt;
+&lt;h2 id="rss"&gt;RSS
+&lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
+&lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt;1
+&lt;/span&gt;&lt;span class="lnt"&gt;2
+&lt;/span&gt;&lt;span class="lnt"&gt;3
+&lt;/span&gt;&lt;span class="lnt"&gt;4
+&lt;/span&gt;&lt;span class="lnt"&gt;5
+&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
+&lt;td class="lntd"&gt;
+&lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://www.sciencedaily.com/rss/all.xml
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://github.blog/feed/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://techcrunch.com/feed/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://lexfridman.com/feed/podcast/
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;https://openai.com/blog/rss.xml
+&lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
+&lt;/div&gt;
+&lt;/div&gt;</description></item><item><title>life</title><link>https://boryswu.github.io/p/life/</link><pubDate>Mon, 16 Nov 2026 16:37:42 +0800</pubDate><guid>https://boryswu.github.io/p/life/</guid><description>&lt;p&gt;生意（利益）5掌模型：客户、价值输出 传递通道 合作分钱、核心资源&lt;/p&gt;
+&lt;p&gt;公司（法人）老板职责：协调5掌，高效运转&lt;/p&gt;
+&lt;h2 id="客户"&gt;客户
+&lt;/h2&gt;&lt;p&gt;国内 / 海外
+人多的地方去找客户、挖掘需求（social, exhibition、SEO、 Sales资源、客户转介绍）&lt;/p&gt;
+&lt;h2 id="价值输出产品服务价值"&gt;价值输出(产品/服务价值)
+&lt;/h2&gt;&lt;pre&gt;&lt;code&gt;价值输出・产品三类划分
+&lt;/code&gt;&lt;/pre&gt;
+&lt;p&gt;必用的（刚需品）：低单价，以量取胜
+有用的（耐用品）：有固定使用场景，属于损耗品，市场需求稳定
+有趣的（兴趣爱好类）：精致、高溢价&lt;/p&gt;
+&lt;h2 id="传递通道"&gt;传递通道
+&lt;/h2&gt;&lt;p&gt;一个便宜的吸引流量
+营销，找客户的痛点、实际需求
+大爆品（打造爆款）
+渠道流量&lt;/p&gt;
+&lt;h2 id="合作分钱各环节合作借势供应商员工资源资本"&gt;合作分钱（各环节）:合作(借势),供应商、员工、资源、资本
+&lt;/h2&gt;&lt;p&gt;采购：供应稳定，价格合适，质量可靠
+生产：掌握技术，提高效率
+研发:花两个人的钱招一个能人，不用一个人的钱招2个差的人。
+财务：管好资金，风险管控
+销售：传递价值，创造需求&lt;/p&gt;
+&lt;h2 id="核心资源"&gt;核心资源
+&lt;/h2&gt;&lt;p&gt;打造壁垒，&lt;/p&gt;
+&lt;p&gt;走贸 + 工 + 技路线，学会模仿&lt;/p&gt;
+&lt;p&gt;1）贸：倒卖现成产品，验证真实客户需求，拿到现金流，不要上来就开发产品。
+2）工：不自建工厂，外协生产；同时做轻量差异化修改，跳出通用红海产品。
+3）技：赚到利润之后，小团队自建应用层技术，沉淀固件、工况经验、认证，建立壁垒。&lt;/p&gt;
+&lt;p&gt;创业的时候，首要做的是先跑通模型，而不是赚多少钱，钱是靠复制，复制出来的&lt;/p&gt;
+&lt;p&gt;预言家寻找一个完美的结果。永远在脑海中编织这个过程。
+0-1 一个初版产品 → 投向市场&amp;ndash;修改 → 产品迭代
+赚小钱。小步试错，持续调整路线，持续积累，不断进步。
+市场反馈-发现需求-解决问题-创造价值&lt;/p&gt;
+&lt;p&gt;用贸易验证市场，而不是拍脑袋开发产品。不着急开厂做板
+自己只做：BOM整理、来料检验、成品测试、售后。
+目标：固件、保护逻辑、工况适配、认证成为自己的壁垒；别人买公版方案做不出同等可靠性。&lt;/p&gt;
+&lt;p&gt;一步一步 step，先赚小钱，活下去
+由小到大。小钱，大钱。小项目，大项目。小目标，大目标。
+用低价、下沉的一个产品吸引流量&lt;/p&gt;
+&lt;p&gt;重复做一件事是专业。
+长期做一件事 是事业。
+repeat focus
+精通一行，行业 master（行业大师）
+现在社会分公明确，各行都是人。坚持一个行业，在这个行业里卷过别人。才能有所成就。普通人注定就没有资源。能接触的都是卷的行业。&lt;/p&gt;
+&lt;p&gt;舍弃，路错了要掉头。敢于割掉以前包袱&lt;/p&gt;
+&lt;p&gt;资金流动最重要
+单价高的东西净利润不一定高，要看重净利润&lt;/p&gt;
+&lt;p&gt;资源靠抢，心比碳黑，脸皮要厚
+只关心 Body 、Money、人性，believe myself（相信自己）
+don’t care anybody，他们是蛆，only service your customer（不用在意其他人，只服务你的客户）
+虽然不知道等待我的人生结局是什么，但是这辈子我不想白活
+你是什么，世界就是什么
+时代宠儿，赚钱就是胜利，就是成功。仁义道德是旧社会的精神枷锁。&lt;/p&gt;
+&lt;p&gt;自我定位 来充数的和天才不是一类人。
+没有多大的理想和抱负，只踏实的干。&lt;/p&gt;
+&lt;p&gt;时代，宏大叙事 &lt;br&gt;
+假大空，说一套做一套。
+全是官话，客套话，吹牛逼的话。
+全是骗子，底层互害。都他妈是一群骗子，就看谁的骗术高明。
+有证行骗和无证行骗&lt;/p&gt;
+&lt;p&gt;房间乱
+脑子乱
+资料乱
+主要原因是摄入的信息与物质太多
+要勇于放弃&lt;/p&gt;
+&lt;p&gt;先把自己定义成一家名为“你”的有限公司。利润最高的赛道就是你自己，当你开始投资你自己，全世界都为你让路！当你开始用资本的眼光来审视你自己的人生时，
+你的感受，你的想法，你的阅历，你的成长，你的清醒，就是你这个公司的最有价值的无形资产，你的健康，美貌，你的未来，你的福报，都在你的个人公司里谁也
+拿不走，谁也夺不去？一家名为你的有限公司，你的时间 精力 情绪 智慧 健康甚至美貌就是你这家公司核心的资产。
+新的一年来了首先要开心，其次是其次，爱自己 修行自己 托举自己 取悦自己，不为难 不强求，爱自己这件事一定要拿满分。[一起加油][一起加油]&lt;/p&gt;
+&lt;p&gt;最近两年深圳新成立的公司首次开票开不了的，都要提供租金水电费发票及租赁合同，法人税局面谈这些后才可以正常开票
+title = &amp;lsquo;Life&amp;rsquo;
++++&lt;/p&gt;</description></item><item><title>Myscript</title><link>https://boryswu.github.io/p/myscript/</link><pubDate>Sat, 31 Oct 2026 18:35:13 +0800</pubDate><guid>https://boryswu.github.io/p/myscript/</guid><description>&lt;table&gt;
 &lt;thead&gt;
 &lt;tr&gt;
 &lt;th&gt;Name&lt;/th&gt;
@@ -2697,7 +2803,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;This room may be hired for weddings and other functions
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl0707"&gt;WL0707
+&lt;/div&gt;&lt;h2 id="wl0706"&gt;WL0706
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -2750,7 +2856,7 @@ data-flex-basis="426px"
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;The oil tank had developed a small crack
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
-&lt;/div&gt;&lt;h2 id="wl0707-1"&gt;WL0707
+&lt;/div&gt;&lt;h2 id="wl0707"&gt;WL0707
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -8175,8 +8281,8 @@ data-flex-basis="426px"
 &lt;a href="https://boryswu.github.io/audio/wl0705.mp3" target="_blank"&gt;https://boryswu.github.io/audio/wl0705.mp3&lt;/a&gt;
 &lt;/div&gt;
 &lt;div style="margin:4px 0;font-size:0.9rem;"&gt;
-&lt;strong&gt;wl0707&lt;/strong&gt;：
-&lt;a href="https://boryswu.github.io/audio/wl0707.mp3" target="_blank"&gt;https://boryswu.github.io/audio/wl0707.mp3&lt;/a&gt;
+&lt;strong&gt;wl0706&lt;/strong&gt;：
+&lt;a href="https://boryswu.github.io/audio/wl0706.mp3" target="_blank"&gt;https://boryswu.github.io/audio/wl0706.mp3&lt;/a&gt;
 &lt;/div&gt;
 &lt;div style="margin:4px 0;font-size:0.9rem;"&gt;
 &lt;strong&gt;wl0707&lt;/strong&gt;：
