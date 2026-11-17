@@ -1,4 +1,4 @@
-<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 16 Nov 2026 16:56:16 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Toolbox</title><link>https://boryswu.github.io/p/toolbox/</link><pubDate>Mon, 16 Nov 2026 16:56:16 +0800</pubDate><guid>https://boryswu.github.io/p/toolbox/</guid><description>&lt;h2 id=""&gt;
+<?xml version="1.0" encoding="utf-8" standalone="yes"?><rss version="2.0" xmlns:atom="http://www.w3.org/2005/Atom"><channel><title>BorysWu</title><link>https://boryswu.github.io/</link><description>Recent content on BorysWu</description><generator>Hugo -- gohugo.io</generator><language>en-us</language><copyright>BorysWu</copyright><lastBuildDate>Mon, 16 Nov 2026 16:56:16 +0800</lastBuildDate><atom:link href="https://boryswu.github.io/index.xml" rel="self" type="application/rss+xml"/><item><title>Toolbox</title><link>https://boryswu.github.io/p/toolbox/</link><pubDate>Mon, 16 Nov 2026 16:56:16 +0800</pubDate><guid>https://boryswu.github.io/p/toolbox/</guid><description>&lt;h2 id="diagram"&gt;Diagram
 &lt;/h2&gt;&lt;div class="highlight"&gt;&lt;div class="chroma"&gt;
 &lt;table class="lntable"&gt;&lt;tr&gt;&lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code&gt;&lt;span class="lnt"&gt; 1
@@ -21,27 +21,39 @@
 &lt;/span&gt;&lt;span class="lnt"&gt;18
 &lt;/span&gt;&lt;span class="lnt"&gt;19
 &lt;/span&gt;&lt;span class="lnt"&gt;20
+&lt;/span&gt;&lt;span class="lnt"&gt;21
+&lt;/span&gt;&lt;span class="lnt"&gt;22
+&lt;/span&gt;&lt;span class="lnt"&gt;23
+&lt;/span&gt;&lt;span class="lnt"&gt;24
+&lt;/span&gt;&lt;span class="lnt"&gt;25
+&lt;/span&gt;&lt;span class="lnt"&gt;26
 &lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;
 &lt;td class="lntd"&gt;
 &lt;pre tabindex="0" class="chroma"&gt;&lt;code class="language-fallback" data-lang="fallback"&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;graph LR
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root[Borys]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; A[000&amp;lt;br/&amp;gt;BYSREP]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; A --&amp;gt; B[010&amp;lt;br/&amp;gt;Oasis：经常变的]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B1[112&amp;lt;br/&amp;gt;备注：112说明]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B2[112&amp;lt;br/&amp;gt;备注：112说明]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B3[113&amp;lt;br/&amp;gt;备注：113说明]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; B --&amp;gt; B4[114&amp;lt;br/&amp;gt;备注：114说明]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; A --&amp;gt; C[020&amp;lt;br/&amp;gt;Tundra：PGPkeyFile]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; BYA[000&amp;lt;br/&amp;gt;BYSREP]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYA --&amp;gt; BYB1[010&amp;lt;br/&amp;gt;Oasis：经常变的]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYA --&amp;gt; BYB2[040&amp;lt;br/&amp;gt;Scythe:PriData]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYB2 --&amp;gt; BYC1[041&amp;lt;br/&amp;gt;Edu]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYB2 --&amp;gt; BYC2[042&amp;lt;br/&amp;gt;Pass]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYB2 --&amp;gt; BYC3[043&amp;lt;br/&amp;gt;Work]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYA --&amp;gt; BYB3[050&amp;lt;br/&amp;gt;Comrade:PriIm]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYB3 --&amp;gt; BYC4[051&amp;lt;br/&amp;gt;Shang]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYB3 --&amp;gt; BYC5[052&amp;lt;br/&amp;gt;Ua]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BYA --&amp;gt; BYC6[060&amp;lt;br/&amp;gt;Tundra：PGPkeyFile]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; E[100&amp;lt;br/&amp;gt;Cinder：办公Temp]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; F[200&amp;lt;br/&amp;gt;Colonel：Skill]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; F --&amp;gt; Z1[210&amp;lt;br/&amp;gt;English]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; F --&amp;gt; Z2[210&amp;lt;br/&amp;gt;Markdown]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; G[400&amp;lt;br/&amp;gt;DYD]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; H[500&amp;lt;br/&amp;gt;BPT]
-&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; I[700&amp;lt;br/&amp;gt;Pale:backup]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; CDA[100&amp;lt;br/&amp;gt;Cinder：办公Temp]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; COA[200&amp;lt;br/&amp;gt;Colonel：Skill]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; COA --&amp;gt; COB1[210&amp;lt;br/&amp;gt;English]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; COA --&amp;gt; COB2[220&amp;lt;br/&amp;gt;Markdown]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; DYA[400&amp;lt;br/&amp;gt;DYD]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; BPA[500&amp;lt;br/&amp;gt;BPT]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BPA --&amp;gt; BPB1[510&amp;lt;br/&amp;gt;Logo]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BPA --&amp;gt; BPB2[520&amp;lt;br/&amp;gt;web]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; BPA --&amp;gt; BPB3[530&amp;lt;br/&amp;gt;Port]
+&lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt; root --&amp;gt; PAA[700&amp;lt;br/&amp;gt;Pale:backup]
 &lt;/span&gt;&lt;/span&gt;&lt;span class="line"&gt;&lt;span class="cl"&gt;
 &lt;/span&gt;&lt;/span&gt;&lt;/code&gt;&lt;/pre&gt;&lt;/td&gt;&lt;/tr&gt;&lt;/table&gt;
 &lt;/div&gt;
